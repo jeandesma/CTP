@@ -141,9 +141,9 @@ where $\eta$ is constant. For randomized strategies, it becomes:
 To be completed...
 
 \section{Bounds of competitiveness with multiple travellers}
-We consider the following determinist and online algorithm for K blocked edges and L travellers with complete communication: we launch the travellers one at a time. If the traveller meets a blocked edge, it has to stay there and we launch another traveller who will have to take the second shortest path possible. Once again when this one meets a blocked edge, it stays there and another is launched. Let's call this strategy the abandonment strategy.
+We consider the following deterministic and online algorithm for K blocked edges and L travellers with complete communication: we launch the travellers one at a time. If the traveller meets a blocked edge, it has to stay there and we launch another traveller who will have to take the second shortest path possible. Once again when this one meets a blocked edge, it stays there and another is launched. Let's call this strategy the abandonment strategy.
 
-\paragraph{Lemma 3.2:} Lemme Aurelie
+\paragraph{Lemma 3.1:} The cost of the abandonment strategy on the Westphale graph is : K + 1 if L $>$ K and 2K - L + 1 if L $<$ K.
 
 \paragraph{Proof:} Preuve Aurelie.
 
@@ -151,16 +151,16 @@ We consider the following determinist and online algorithm for K blocked edges a
 
 \paragraph{Proof:} This Lemma can be proved using recurrence.  
 
-\paragraph{Recurrence hypothesis:} For K (blocked edges), for all L the optimal cost is : K + 1 if L > K and 2K - L + 1 if L < K.
+\paragraph{Recurrence hypothesis:} For K (blocked edges), for all L the optimal cost is : K + 1 if L $>$ K and 2K - L + 1 if L $<$ K.
 
 \paragraph{Initialization:} Let's take the example of 1 traveller. As shown in the existing literature we already have the cost equal to K + 1.
 
-\paragraph{Recurrence:} We know that there is a natural integer n number of travellers for which the cost is: if n > K, the cost is K + 1, and if n < K, the cost is 2K - L + 1. Let's prove it for n + 1. 
-If n + 1 < K, since we are in the worst case scenario, the n travellers have to discover the K blocked edges before reaching the end. To do so, the cost is at least of K. Then 1 is added to reach the end. However, our strategy has a cost of K + 1 also, therefore once again, for n + 1 < K, the optimal cost is K + 1. 
+\paragraph{Recurrence:} We know that there is a natural integer n number of travellers for which the cost is: if n $>$ K, the cost is K + 1, and if n $<$ K, the cost is 2K - L + 1. Let's prove it for n + 1. 
+If n + 1 $<$ K, since we are in the worst case scenario, the n travellers have to discover the K blocked edges before reaching the end. To do so, the cost is at least of K. Then 1 is added to reach the end. However, our strategy has a cost of K + 1 also, therefore once again, for n + 1 $<$ K, the optimal cost is K + 1. 
 
-Now if n + 1 > K, we launch the first traveller. He discovers one blocked edge and stays there. We are now facing a problem of n travellers facing K-1 blockage. By recurrence hypothesis we know that for that case the cost is 2(K-1) - n + 1 because n > K - 1. To that cost we add the cost of discovering the first blocked edge. We have 2(K + 1) - n + 2 which is equal to 2K - (n + 1) - 1. This shows the second part of the recurrence.
+Now if n + 1 $>$ K, we launch the first traveller. He discovers one blocked edge and stays there. We are now facing a problem of n travellers facing K-1 blockage. By recurrence hypothesis we know that for that case the cost is 2(K-1) - n + 1 because n $>$ K - 1. To that cost we add the cost of discovering the first blocked edge. We have 2(K + 1) - n + 2 which is equal to 2K - (n + 1) - 1. This shows the second part of the recurrence.
 
-We can therefore conclude that the optimal cost for the Westphal graph is : K + 1 if L > K and 2K - L + 1 if L < K. This is the cost of the abandonment strategy. Then this proves Lemma 3.2.
+We can therefore conclude that the optimal cost for the Westphal graph is : K + 1 if L $>$ K and 2K - L + 1 if L $<$ K. This is the cost of the abandonment strategy. Then this proves Lemma 3.2.
 
 
 \section{Bounds of competitiveness with multiple travellers: randomized algorithms}

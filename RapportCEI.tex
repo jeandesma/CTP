@@ -138,7 +138,7 @@ where $\eta$ is constant. For randomized strategies, it becomes:
 
 \subsection{Notations and definitions with $L$ travellers}
 
-The $L$ travelers traverses the same undirected weighted graph $G=\left(V,E,\omega\right)$, $n = \card{V}$ and $m = \card{E}$. They all start their walk at source $s \in V$. Their objective is to reach target $t\in V$ with a minimum cost (also called distance), which is the sum of the weights of edges traversed. We call $d_i$ the distance travelled by the $i^{th}$ traveler. We consider that the $L$ travelers can communicate with each other. Set $E_*$ contains blocked edges, which means that when a traveller reaches an endpoint of one of these edges, he discovers that he cannot pass through it and communicate this information to the other travelers. A pair $\left(G,E_*\right)$ is called a \textit{road map}. From now on, we suppose that any road map $\left(G,E_*\right)$ is feasible, {\em i.e.} $s$ and $t$ are always connected in graph $G\backslash E_*$.
+The $L$ travelers traverses the same undirected weighted graph $G=\left(V,E,\omega\right)$, $n = \card{V}$ and $m = \card{E}$. They all start their walk at source $s \in V$. Their objective is to reach target $t\in V$ with a minimum cost (also called distance), which is the sum of the weights of edges traversed. We call $d_i$ the distance travelled by the $\ith{i}$ traveler. We consider that the $L$ travelers can communicate with each other. Set $E_*$ contains blocked edges, which means that when a traveller reaches an endpoint of one of these edges, he discovers that he cannot pass through it and communicate this information to the other travelers. A pair $\left(G,E_*\right)$ is called a \textit{road map}. From now on, we suppose that any road map $\left(G,E_*\right)$ is feasible, {\em i.e.} $s$ and $t$ are always connected in graph $G\backslash E_*$.
 
 We consider the following timeline which brings forth three times we will need to study this problem.
 \begin{center}
@@ -159,7 +159,7 @@ T_{fa} \mbox{\ : time of the first arrived}
 T_{la} \mbox{\ : time of the last arrived}
 \]
 
-We want to study the minimization of the distances travelled by all the travelers from the departure point $s$ and the arrival point $t$. We have two main problems to consider, we will try to minimize the distances travelled by all travelers:
+We want to study the minimization of the distances traversed by all the travelers from the departure point $s$ and the arrival point $t$. We consider $d_i$ the distance traversed by the $\ith{i}$ traveler. We have two main problems to consider, we will try to minimize the distances traversed by all travelers:
 \begin{description}
 \item[$\bullet$] Before the first arrived :
 \[ 
@@ -173,14 +173,20 @@ We want to study the minimization of the distances travelled by all the traveler
 
 
 
-\section{Bounds of competitiveness with multiple travellers}
-We consider the following deterministic and online algorithm for K blocked edges and L travellers with complete communication: we launch the travellers one at a time. If the traveller meets a blocked edge, it has to stay there and we launch another traveller who will have to take the second shortest path possible. Once again when this one meets a blocked edge, it stays there and another is launched. Let's call this strategy the abandonment strategy.
+\section{Bounds of competitiveness: deterministic algorithms}
+
+We will study this problem with three different types of communication. We will note $P_0$ the proposition when we don't have any communication, $P_1$ when we have partial communication and $P_2$ for complete communication.
+
+\subsection{Complete communication}
+
+We consider the following deterministic and online algorithm for $K$ blocked edges and $L$ travellers with complete communication: we launch the travellers one at a time. If the traveller meets a blocked edge, it has to stay there and we launch another traveller who will have to take the second shortest path possible. Once again when this one meets a blocked edge, it stays there and another is launched. Let's call this strategy the $\textsc{abandonment}$ strategy.
 
 
-\paragraph{Lemma 3.1:} The cost of the abandonment strategy on the Westphal graph is $2(K+1) - min(K+1,L)$ between $T_{fd}$ and $T_{fa}$ and $2K+L$ between $T_{fd}$ and $T_{la}$.
+\begin{lemma} The cost of the abandonment strategy on the Westphal graph is $2(K+1) - \min(K+1,L)$ between $T_{fd}$ and $T_{fa}$ and $2K+L$ between $T_{fd}$ and $T_{la}$.
+\end{lemma}
 
 
-\paragraph{Proof:} We consider the following Westphal graph, where all the ways from the departure point to the arrival point have the same cost $1+\epsilon$. We are searching the cost for the worst case scenario: the only unblocked route is the one we choose last $(s,v_{K+1},t)$.
+\begin{proof}We consider the following Westphal graph, where all the ways from the departure point to the arrival point have the same cost $1+\varepsilon$. We are searching the cost for the worst case scenario: the only unblocked route is the one we choose last $(s,v_{K+1},t)$.
 
 \begin{center}
 \begin{tikzpicture}
@@ -202,7 +208,7 @@ We consider that $w_1 = w_2 = ... = w_{K+1} = 1$, that $\varepsilon$ is very sma
 We have in fact 4 problems to consider: for each of the 2 main problems (between $T_{fd}$ and $T_{fa}$ and between $T_{fd}$ and $ T_{la}$) we have two secondary problems, when $K<L$ and ${K \geq L}$.
 
 \begin{description}
-\item[$\bullet$] $1^{st} case:$ between $T_{fd}$ and $T_{fa}$ and $K<L$
+\item[$\bullet$] Case 1: between $T_{fd}$ and $T_{fa}$ and $K<L$
 
 At the time $t_1$, we send a first traveler through the edge $(s,v_1)$, who discovers that the edge $(v_1,t)$ is blocked and communicates it to the other travelers.
 
@@ -212,10 +218,10 @@ At the time $t_{K+1}$, we send a traveler through the edges $(s,v_{K+1})$ and th
 
 Therefore we have: 
 \[
-\sum_{i=1}^{K} \omega_{i} + \omega_{K+1} + \varepsilon = \sum_{i=1}^{K} 1 + 1 + \varepsilon = K + 1 + \varepsilon
+\sum_{i=1}^{K} \omega_{i} + \omega_{K+1} + \varepsilon = \sum_{i=1}^{K} 1 + 1 + \varepsilon = K + 1 + \varepsilon.
 \]
 
-\item[$\bullet$] $2^{nd} case:$ between $T_{fd}$ and $T_{la}$ and $K<L$
+\item[$\bullet$] Case 2: between $T_{fd}$ and $T_{la}$ and $K<L$
 
 We redo the three first steps of the 1st case and at $ T_{pa} $ the first traveler communicate the unblocked route to the target and therefore that the edge $(v_{K+1},t)$ is not blocked.
 
@@ -224,18 +230,14 @@ At the time $t_{K+2}$ the K travelers blocked on the nodes $v_{1} ... v_K $ come
 Each traveler at the point $v_i$ will then arrive at the destination with a cost of $w_i + w_{K+1} + \varepsilon$. And each traveler still at the departure point will arrive at destination with a cost of $w_{K+1} + \varepsilon$.
 
 Therefore, we have:
+\begin{eqnarray}
+\sum_{i=1}^{K} \omega_{i} &+& \omega_{K+1} + \varepsilon + \sum_{i=1}^{K}(\omega_{i} + \omega_{K+1} + \varepsilon) + (L - K) ( \omega_{K+1} + \varepsilon ) \nonumber \\
+&=& 2\sum_{i=1}^{K} \omega_{i} + L(\omega_{K+1} + \varepsilon ) = 2\sum_{i=1}^{K} 1+ L(1 + \varepsilon ) \nonumber \\
+&=& 2K+ L(1 + \varepsilon ). \nonumber
+\end{eqnarray}
 
-\[
-\sum_{i=1}^{K} \omega_{i} + \omega_{K+1} + \varepsilon + \sum_{i=1}^{K}(\omega_{i} + \omega_{K+1} + \varepsilon) + (L - K) ( \omega_{K+1} + \varepsilon )
-\]
-\[
- = 2\sum_{i=1}^{K} \omega_{i} + L(\omega_{K+1} + \varepsilon ) = 2\sum_{i=1}^{K} 1+ L(1 + \varepsilon )
-\]
-\[
- = 2K+ L(1 + \varepsilon )
-\]
 
-\item[$\bullet$] $3^{rd} case:$ between $T_{fd}$ and $T_{fa}$ and $K \geq L$
+\item[$\bullet$] Case 3: between $T_{fd}$ and $T_{fa}$ and $K \geq L$
 
 At the time $t_1$, we send a first traveler through the edge $(s,v_1)$, who discovers that the edge $(v_1,t)$ is blocked and communicates it to the other travelers.
 
@@ -249,20 +251,14 @@ At the time $t_{K+1}$, we send a traveler through the route $(v_K,s,v_{K+1})$ an
 
 Therefore we have: 
 
-\[
-\sum_{i=1}^{L} \omega_{i} + \sum_{i=L+1}^{K}(\omega_{i-1} + \omega_{i} ) + \omega_{K} + \omega_{K+1} + \varepsilon
-\]
-\[
-=\sum_{i=1}^{L} 1 + \sum_{i=1}^{K-L}2 + 1 + 1 + \varepsilon
-\]
-\[
-= L + 2(K - L) + 2 + \varepsilon
-\]
-\[
-= 2(K + 1 ) - L + \varepsilon
-\]
+\begin{eqnarray}
+\sum_{i=1}^{L} \omega_{i} &+& \sum_{i=L+1}^{K}(\omega_{i-1} + \omega_{i} ) + \omega_{K} + \omega_{K+1} + \varepsilon  \nonumber\\
+&=&\sum_{i=1}^{L} 1 + \sum_{i=1}^{K-L}2 + 1 + 1 + \varepsilon\nonumber \\
+&=& L + 2(K - L) + 2 + \varepsilon \nonumber\\
+&=& 2(K + 1 ) - L + \varepsilon.\nonumber
+\end{eqnarray}
 
-\item[$\bullet$] $4^{th} case:$ between $T_{fd}$ and $T_{la}$ and $K \geq L$
+\item[$\bullet$] Case 4: between $T_{fd}$ and $T_{la}$ and $K \geq L$
 
 We redo the five first steps of the third case and at $ T_{pa}$ the first traveler will communicate the unblocked route to the target and therefore that the edge $(v_{K+1},t)$ is not blocked.
 
@@ -272,14 +268,14 @@ Each traveler at the point $v_i$ will then arrive at the destination with a cost
 
 Therefore we have:
 
-\[
-2(K + 1) - L + \varepsilon + \sum_{i=1}^{L-1}(\omega_{i} + \omega_{K+1} + \varepsilon )
-\]
-\[
-= 2K + L(1+\varepsilon)
-\]
+\begin{eqnarray}
+2(K + 1) & - & L + \varepsilon + \sum_{i=1}^{L-1}(\omega_{i} + \omega_{K+1} + \varepsilon ) \nonumber\\
+& = & 2K + L(1+\varepsilon).\nonumber
+\end{eqnarray}
+
 
 \end{description}
+\end{proof}
 
 Therefore we have the following costs for the Westphal graph:
 
@@ -295,99 +291,79 @@ Therefore we have the following costs for the Westphal graph:
 \end{tabular}
 \end{center}
 
-\paragraph{Lemma 3.2:} The abandonment strategy has the optimal cost on the Westphal graph.
+\begin{lemma} The abandonment strategy has the optimal cost on the Westphal graph.
+\end{lemma}
 
-\paragraph{Proof:} This Lemma can be proved using recurrence.  
+\begin{proof} This Lemma is proved using recurrence.  
 
-\paragraph{Recurrence hypothesis:} For K (blocked edges), for all L the optimal cost is : K + 1 if L $>$ K and 2K - L + 1 if L $<$ K.
+\paragraph{Recurrence hypothesis:} For K (blocked edges), for all $L$ the optimal cost is : $K + 1$ if $L > K$ and $2K - L + 1$ if $L < K$.
 
-\paragraph{Initialization:} Let's take the example of 1 traveller. As shown in the existing literature we already have the cost equal to K + 1.
+\paragraph{Initialization:} Let us take the example of $L = 1$ traveler. As shown in the existing literature we already have the cost equal to $K + 1$.
 
-\paragraph{Recurrence:} We know that there is a natural integer n number of travellers for which the cost is: if n $>$ K, the cost is K + 1, and if n $<$ K, the cost is 2K - L + 1. Let's prove it for n + 1. 
-If n + 1 $<$ K, since we are in the worst case scenario, the n travellers have to discover the K blocked edges before reaching the end. To do so, the cost is at least of K. Then 1 is added to reach the end. However, our strategy has a cost of K + 1 also, therefore once again, for n + 1 $<$ K, the optimal cost is K + 1. 
+\paragraph{Recurrence:} We know that there is a natural integer n number of travellers for which the cost is: if $n > K$, the cost is $K + 1$, and if $n < K$, the cost is $2K - L + 1$. Let's prove it for $n + 1$. 
+If $n + 1 < K$, since we are in the worst case scenario, the $n$ travellers have to discover the $K$ blocked edges before reaching the end. To do so, the cost is at least of $K$. Then $1$ is added to reach the end. However, our strategy has a cost of $K + 1$ also, therefore once again, for$ n + 1 < K$, the optimal cost is $K + 1$. 
 
-Now if n + 1 $>$ K, we launch the first traveller. He discovers one blocked edge and stays there. We are now facing a problem of n travellers facing K-1 blockage. By recurrence hypothesis we know that for that case the cost is 2(K-1) - n + 1 because n $>$ K - 1. To that cost we add the cost of discovering the first blocked edge. We have 2(K + 1) - n + 2 which is equal to 2K - (n + 1) - 1. This shows the second part of the recurrence.
+Now if $n + 1 > K$, we launch the first traveler. He discovers one blocked edge and stays there. We are now facing a problem of $n$ travllers facing $K-1$ blockage. By recurrence hypothesis we know that for that case the cost is $2(K-1) - n + 1$ because $n > K - 1$. To that cost we add the cost of discovering the first blocked edge. We have $2(K + 1) - n + 2$ which is equal to $2K - (n + 1) - 1$. This shows the second part of the recurrence.
 
-We can therefore conclude that the optimal cost for the Westphal graph is : K + 1 if L $>$ K and 2K - L + 1 if L $<$ K. This is the cost of the abandonment strategy. Then this proves Lemma 3.2.
+We can therefore conclude that the optimal cost for the Westphal graph is : $K + 1$ if $L > K$ and $2K - L + 1$ if $L < K$. This is the cost of the abandonment strategy. 
+\end{proof}
 
-\paragraph{Lemma 3.1.3:} The competitive ratios found in the Lemma 3.1.1 are the minimum we can have for any graph. Therefore the best competitive ratio for the abandonment algorithm is $2(K+1) - min(K+1,L)$ between $T_{fd}$ and $T_{fa}$ and $2K+L$ between $T_{fd}$ and $T_{la}$.
+\begin{lemma} The competitive ratios found in the Lemma 3.1.1 are the minimum we can have for any graph. Therefore the best competitive ratio for the abandonment algorithm is $2(K+1) - min(K+1,L)$ between $T_{fd}$ and $T_{fa}$ and $2K+L$ between $T_{fd}$ and $T_{la}$.
+\end{lemma}
 
-\paragraph{Proof:} We consider the same graph as in the proof of the Lemma 3.1, but this time we consider that we have $w_1 < w_2 < ... < w_{K+1}$. We still consider that $\varepsilon$ is very small, that for $1\leq i \leq K$, $(v_i,t)$ is blocked and that $t_{i+1}$ is a time after the $i^{th}$ movement. We are still searching for the cost of the worst case scenario: the only unblocked route is the one we choose last, in this case the one with the biggest cost $(s,v_{K+1},t)$.
+\begin{proof} We consider the same graph as in the proof of the Lemma 3.1, but this time we consider that we have $w_1 < w_2 < ... < w_{K+1}$. We still consider that $\varepsilon$ is very small, that for $1\leq i \leq K$, $(v_i,t)$ is blocked and that $t_{i+1}$ is a time after the $i^{th}$ movement. We are still searching for the cost of the worst case scenario: the only unblocked route is the one we choose last, in this case the one with the biggest cost $(s,v_{K+1},t)$.
+
 
 We still have the same 4 problems to study as in the proof of the Lemma 3.1.1, for each case, we follow the same procedure as before.
 
 The true optimum route in each case will be the last one taken with a cost of $\omega_{K+1} + \varepsilon$.
 
 \begin{description}
-\item[$\bullet$] $1^{st} case:$ between $T_{fd}$ and $T_{fa}$ and $K<L$
+\item[$\bullet$] Case 1: between $T_{fd}$ and $T_{fa}$ and $K<L$
 
 We have: 
-\[
-\frac {\sum_{i=1}^{K} \omega_{i} + \omega_{K+1} + \varepsilon} {\omega_{K+1} + \varepsilon} 
-\]
-\[
-\leq \frac {\sum_{i=1}^{K+1} \omega_{K+1} +} {\omega_{K+1}} + O(1) 
-\]
-\[
-\leq \frac {(K+1)\omega_{K+1} } {\omega_{K+1}} + O(1)
-\]
-\[
-\leq K+1 + O(1)
-\]
+\begin{eqnarray}
+\frac {\sum_{i=1}^{K} \omega_{i} + \omega_{K+1} + \varepsilon} {\omega_{K+1} + \varepsilon} &\leq& \frac {\sum_{i=1}{K+1} \omega_{K+1} +} {\omega_{K+1}} + o(1)  \nonumber \\
+\leq \frac {(K+1)\omega_{K+1} } {\omega_{K+1}} + o(1) &\leq& K+1 + o(1).\nonumber
+\end{eqnarray}
 
-\item[$\bullet$] $2^{nd} case:$ between $T_{fd}$ and $T_{la}$ and $K<L$
+\item[$\bullet$] Case 2: between $T_{fd}$ and $T_{la}$ and $K<L$
 
 We have:
+\[
+\frac {\sum_{i=1}^{K} \omega_{i} +  \omega_{K+1} + \varepsilon + \sum_{i=1}^{K}(\omega_{i} + \omega_{K+1} + \varepsilon) + (L - K) ( \omega_{K+1} + \varepsilon )}{\omega_{K+1} + \varepsilon}
+\]
+\begin{eqnarray}
+&\leq& \frac {2\sum_{i=1}^{K} \omega_{K+1} + L\omega_{K+1}}{\omega_{K+1}} + o(1) \leq \frac {2(K+L)\omega_{K+1}}{\omega_{K+1}} + o(1) \nonumber\\
+ &\leq& 2K+ L + o(1).\nonumber
+\end{eqnarray}
 
-\[
-\frac {\sum_{i=1}^{K} \omega_{i} + \omega_{K+1} + \varepsilon + \sum_{i=1}^{K}(\omega_{i} + \omega_{K+1} + \varepsilon) + (L - K) ( \omega_{K+1} + \varepsilon )}{\omega_{K+1} + \varepsilon} 
-\]
-\[
- \leq \frac {2\sum_{i=1}^{K} \omega_{K+1} + L\omega_{K+1}}{\omega_{K+1}} + O(1)
-\]
-\[
- \leq \frac {2(K+L)\omega_{K+1}}{\omega_{K+1}} + O(1)
-\]
-\[
- \leq 2K+ L + O(1)
-\]
-
-\item[$\bullet$] $3^{rd} case:$ between $T_{fd}$ and $T_{fa}$ and $K \geq L$
+\item[$\bullet$] Case 3: between $T_{fd}$ and $T_{fa}$ and $K \geq L$
 
 We have: 
 
-\[
+\begin{eqnarray}
 \frac {\sum_{i=1}^{L} \omega_{i} + \sum_{i=L+1}^{K}(\omega_{i-1} + \omega_{i} ) + \omega_{K} + \omega_{K+1} + \varepsilon} {\omega_{K+1} + \varepsilon} 
-\]
-\[
-\leq \frac {\sum_{i=1}^{L} \omega_{K+1} + \sum_{i=1}^{K-L}2\omega_{K+1} + 2\omega_{K+1}}{\omega_{K+1}} + O(1)
-\]
-\[
-\leq \frac {(L + 2(K - L) + 2)\omega_{K+1}}{\omega_{K+1}} + O(1)
-\]
-\[
-\leq 2(K + 1 ) - L + O(1)
-\]
+&\leq& \frac {\sum_{i=1}^{L} \omega_{K+1} + \sum_{i=1}^{K-L}2\omega_{K+1} + 2\omega_{K+1}}{\omega_{K+1}} + o(1) \nonumber\\
+\leq \frac {(L + 2(K - L) + 2)\omega_{K+1}}{\omega_{K+1}} + o(1)
+&\leq& 2(K + 1 ) - L + o(1).\nonumber
+\end{eqnarray}
 
-\item[$\bullet$] $4^{th} case:$ between $T_{fd}$ and $T_{la}$ and $K \geq L$
+\item[$\bullet$] Case 4: between $T_{fd}$ and $T_{la}$ and $K \geq L$
 
 We have:
 
 \[
 \frac {\sum_{i=1}^{L} \omega_{i} + \sum_{i=L+1}^{K}(\omega_{i-1} + \omega_{i} ) + \omega_{K} + \omega_{K+1} + \varepsilon + \sum_{i=1}^{L-1}(\omega_{i} + \omega_{K+1} + \varepsilon } {\omega_{K+1} + \varepsilon} 
 \]
-\[
-\leq \frac {\sum_{i=1}^{L} \omega_{K+1} + \sum_{i=1}^{K-L}2\omega_{K+1} + 2\omega_{K+1} + \sum_{i=1}^{L-1}(\omega_{K+1} + \omega_{K+1}} {\omega_{K+1}} + O(1)
-\]
-\[
-\leq \frac {(L + 2(K - L) + 2 + 2(L-1)\omega_{K+1}}{\omega_{K+1}} + O(1)
-\]
-\[
- \leq 2K + L + O(1)
-\]
+\begin{eqnarray}
+&\leq& \frac {\sum_{i=1}^{L} \omega_{K+1} + \sum_{i=1}^{K-L}2\omega_{K+1} + 2\omega_{K+1} + \sum_{i=1}^{L-1}(\omega_{K+1} + \omega_{K+1}} {\omega_{K+1}} + o(1) \nonumber\\
+&\leq& \frac {(L + 2(K - L) + 2 + 2(L-1)\omega_{K+1}}{\omega_{K+1}} + o(1)
+ \leq 2K + L + o(1).\nonumber
+\end{eqnarray}
 
 \end{description}
-
+\end{proof}
 
 Therefore we have the following competitive ratio for any graph:
 
@@ -406,40 +382,40 @@ Therefore we have the following competitive ratio for any graph:
 \subsection{No communication}
 We now consider the same following deterministic and online algorithm for K blocked edges and L travellers with no communication: they don't even know that they are a part of a fleet, so they will all leave at the first moment and will all arrive at the same time at the end point. We will call this strategy the multiple single traveler strategy.
 
-\paragraph{Lemma 3.2.1:} The cost of the multiple single traveler strategy on the Westphal graph is $(2K+1)L$ between $T_{fd}$ and $T_{fa}$ and between $T_{fd}$ and $T_{la}$.
+\begin{lemma} The cost of the multiple single traveler strategy on the Westphal graph is $(2K+1)L$ between $T_{fd}$ and $T_{fa}$ and between $T_{fd}$ and $T_{la}$.
+\end{lemma}
 
-\paragraph{Proof:} None of the L travelers know that they are a fleet. All of them will depart at the first time. We are in the worst case scenario, so all of them will go through all the blocked paths before finding the opened one. They will all be independent and act as a single traveler. They will all arrive at the destination at the same time. Therefore no matter if we take into account the distance between $T_{fd}$ and $T_{fa}$ or between $T_{fd}$ and $T_{la}$, we will have a cost of $(2K+1)$ for each traveler, meaning $(2K+1)L$ total.
+\begin{proof} None of the L travelers know that they are a fleet. All of them will depart at the first time. We are in the worst case scenario, so all of them will go through all the blocked paths before finding the opened one. They will all be independent and act as a single traveler. They will all arrive at the destination at the same time. Therefore no matter if we take into account the distance between $T_{fd}$ and $T_{fa}$ or between $T_{fd}$ and $T_{la}$, we will have a cost of $(2K+1)$ for each traveler, meaning $(2K+1)L$ total.
+\end{proof}
 
-\paragraph{Lemma 3.2.2:} The multiple single traveler strategy has the optimal cost on the Westphal graph.
+\begin{lemma}The multiple single traveler strategy has the optimal cost on the Westphal graph.
+\end{lemma}
 
-\paragraph{Proof:} All of the travelers aren't communicating, therefore they are independent. We are in the worst case scenario, so each traveler will be as a single traveler and have a cost of $(2K+1)$ as seen in the existence literature. So we have a total cost of $(2K+1)L$.
+\begin{proof} All of the travelers aren't communicating, therefore they are independent. We are in the worst case scenario, so each traveler will be as a single traveler and have a cost of $(2K+1)$ as seen in the existence literature. So we have a total cost of $(2K+1)L$.
+\end{proof}
 
-\paragraph{Lemma 3.2.3:} The competitive ratios found in the Lemma 3.2.1 are the minimum we can have for any graph. Therefore the best competitive ratio for the multiple single traveler algorithm is $(2K+1)L)$ between $T_{fd}$ and $T_{fa}$ and between $T_{fd}$ and $T_{la}$.
+\begin {lemma} The competitive ratios found in the Lemma 3.2.1 are the minimum we can have for any graph. Therefore the best competitive ratio for the multiple single traveler algorithm is $(2K+1)L)$ between $T_{fd}$ and $T_{fa}$ and between $T_{fd}$ and $T_{la}$.
+\end{lemma}
 
-\paragraph{Proof:} We consider the same graph as in the proof of the Lemma 3.2.1, but this time we consider that we have $w_1 < w_2 < ... < w_{K+1}$. We still consider that $\varepsilon$ is very small, that for $1\leq i \leq K$, $(v_i,t)$ is blocked. We are still searching for the cost of the worst case scenario: the only unblocked route is the one we choose last, in this case the one with the biggest cost $(s,v_{K+1},t)$.
+\begin {proof} We consider the same graph as in the proof of the Lemma 3.2.1, but this time we consider that we have $w_1 < w_2 < ... < w_{K+1}$. We still consider that $\varepsilon$ is very small, that for $1\leq i \leq K$, $(v_i,t)$ is blocked. We are still searching for the cost of the worst case scenario: the only unblocked route is the one we choose last, in this case the one with the biggest cost $(s,v_{K+1},t)$.
 
-The true optimum route in each case will be the last one taken with a cost of $\omega_{K+1} + \varepsilon$.
+The optimum route which is the only unblocked route in each case will be the last one taken with a cost of $\omega_{K+1} + \varepsilon$.
 
 In both cases, we will have:
-\[
+\begin{eqnarray}
 \frac {L(\sum_{i=1}^{K} 2*\omega_{i} + \omega_{K+1} + \varepsilon)} {\omega_{K+1} + \varepsilon} 
-\]
-\[
-\leq \frac {L(\sum_{i=1}^{K} 2*\omega_{K+1} + \omega_{K+1})} {\omega_{K+1}} + O(1) 
-\]
-\[
-\leq \frac {L(2K+1)\omega_{K+1} } {\omega_{K+1}} + O(1)
-\]
-\[
-\leq L(2K+1) + O(1)
-\]
+&\leq& \frac {L(\sum_{i=1}^{K} 2*\omega_{K+1} + \omega_{K+1})} {\omega_{K+1}} + o(1) \nonumber\\
+\leq \frac {L(2K+1)\omega_{K+1} } {\omega_{K+1}} + o(1)
+&\leq& L(2K+1) + o(1).\nonumber
+\end{eqnarray}
 
-For any graph, the best competitive ratio for the multiple single travaler strategy is L(2K+1) for both problems: between $T_{fd}$ and $T_{fa}$ and between $T_{fd}$ and $T_{la}$.
+For any graph, the best competitive ratio for the multiple single travaler strategy is $L(2K+1)$ for both problems: between $T_{fd}$ and $T_{fa}$ and between $T_{fd}$ and $T_{la}$.
+\end{proof}
 
 \subsection{Partial communication}
-We now consider the same following deterministic and online algorithm for K blocked edges and L travellers with partial communication: the travelers can communicate at the beginning and decide what each traveler will do, they don't talk later on. We will have a rolling strategy where the first traveler takes the first route, the second one will wait a time a bit bigger than it would have taken the first one to arrive at destination if the first path was unblocked, and will take the second path and so on. In the cases where $K>L$ the last traveler will continue to take each following path when we are in the fist arrival problem. For the last arrival problem, we will minimize the worst case scenario by eliminating some paths for travelers as they will take different paths at the beginning and take the following one afterwards. Therefore they won't all be travelling all paths.
+We now consider the same following deterministic and online algorithm for $K$ blocked edges and $L$ travelers with partial communication: the travelers can communicate at the beginning and decide what each traveler will do, they don't talk later on. We will have a rolling strategy where the first traveler takes the first route, the second one will wait a time a bit bigger than it would have taken the first one to arrive at destination if the first path was unblocked, and will take the second path and so on. In the cases where $K>L$ the last traveler will continue to take each following path when we are in the fist arrival problem. For the last arrival problem, we will minimize the worst case scenario by eliminating some paths for travelers as they will take different paths at the beginning and take the following one afterwards. Therefore they will not all be travelling all paths.
 
-\paragraph{Lemma 3.3.1:} The cost of the rolling travelers strategy on the Westphal graph is:
+\begin{lemma} The cost of the rolling travelers strategy on the Westphal graph is:
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -452,11 +428,12 @@ We now consider the same following deterministic and online algorithm for K bloc
 \hline
 \end{tabular}
 \end{center}
+\end{lemma}
 
-\paragraph{Proof:} We consider the same Westphal graph as in the proof of the Lemma 3.1.1 and the same 4 problems. We consider that the times $t_i$ is i times the time needed to go from s to t with an unblocked path (in this case time needed to travel $1 + \varepsilon$). 
+\begin{proof} We consider the same Westphal graph as in the proof of the Lemma 3.1.1 and the same 4 problems. We consider that the times $t_i$ is i times the time needed to go from s to t with an unblocked path (in this case time needed to travel $1 + \varepsilon$). 
 
 \begin{description}
-\item[$\bullet$] $1^{st} case:$ between $T_{fd}$ and $T_{fa}$ and $K<L$
+\item[$\bullet$] Case 1: between $T_{fd}$ and $T_{fa}$ and $K<L$
 
 At the time $t_1$, we send a first traveler through the edge $(s,v_1)$, who discovers that the edge $(v_1,t)$ is blocked and stays there.
 
@@ -466,10 +443,10 @@ At the time $t_{K+1}$, we send a traveler through the edges $(s,v_{K+1})$ and th
 
 Therefore we have: 
 \[
-\sum_{i=1}^{K} \omega_{i} + \omega_{K+1} + \varepsilon = \sum_{i=1}^{K} 1 + 1 + \varepsilon = K + 1 + \varepsilon
+\sum_{i=1}^{K} \omega_{i} + \omega_{K+1} + \varepsilon = \sum_{i=1}^{K} 1 + 1 + \varepsilon = K + 1 + \varepsilon.
 \]
 
-\item[$\bullet$] $2^{nd} case:$ between $T_{fd}$ and $T_{fa}$ and $K \geq L$
+\item[$\bullet$] Case 2: between $T_{fd}$ and $T_{fa}$ and $K \geq L$
 
 At the time $t_1$, we send a first traveler through the edge $(s,v_1)$, who discovers that the edge $(v_1,t)$ is blocked ans stays there.
 
@@ -483,20 +460,14 @@ At the time $t_{K+1}$, we send the last traveler through the route $(v_K,s,v_{K+
 
 Therefore we have: 
 
-\[
+\begin{eqnarray}
 \sum_{i=1}^{L} \omega_{i} + \sum_{i=L+1}^{K}(\omega_{i-1} + \omega_{i} ) + \omega_{K} + \omega_{K+1} + \varepsilon
-\]
-\[
-=\sum_{i=1}^{L} 1 + \sum_{i=1}^{K-L}2 + 1 + 1 + \varepsilon
-\]
-\[
+&=&\sum_{i=1}^{L} 1 + \sum_{i=1}^{K-L}2 + 1 + 1 + \varepsilon \nonumber\\
 = L + 2(K - L) + 2 + \varepsilon
-\]
-\[
-= 2(K + 1 ) - L + \varepsilon
-\]
+&=& 2(K + 1 ) - L + \varepsilon.\nonumber
+\end{eqnarray}
 
-\item[$\bullet$] $3^{rd} case:$ between $T_{fd}$ and $T_{la}$ and $K \geq L$
+\item[$\bullet$] Case 3: between $T_{fd}$ and $T_{la}$ and $K \geq L$
 
 At the time $t_1$, we send the $i^{th}$ traveler through the edges $(s,v_i)$ for $1 \leq i \leq L$ they all discover that the edge $(v_i,t)$ is blocked.
 
@@ -508,48 +479,35 @@ The first traveler will then have a cost of $2K+1$, the second of $2K$. For $1 \
 
 Therefore we have:
 
-\[
+\begin{eqnarray}
 \sum_{i=1}^{L}(2(K-i)+1)
-\]
-\[
-= 2K + L - 2\sum_{i=1}^{L}i
-\]
-\[
-= 2K + L - 2\frac{L(L+1)}{2}
-\]
-\[
-= 2K + L(1-(L+1))
-\]
-\[
-= 2K - L^2
-\]
+&=& 2K + L - 2\sum_{i=1}^{L}i
+= 2K + L - 2\frac{L(L+1)}{2} \nonumber \\
+&=& 2K + L(1-(L+1))
+= 2K - L^2.\nonumber
+\end{eqnarray}
 
-\item[$\bullet$] $4^{th} case:$ between $T_{fd}$ and $T_{la}$ and $K<L$
+\item[$\bullet$] Case 4: between $T_{fd}$ and $T_{la}$ and $K<L$
 
 We redo the same pattern as in the 3rd case, but there will be more than one traveler on the same road. The $i^{th}$ traveler will take the $i\mod{(K+1)}^{th}$ path.
 
-The first traveler will then have a cost of $2K+1$, the second of $2K$. For $1 \leq i \leq L$, the $i^{th}$ traveler will have a cost of $2(K-i\mod{K+1})+1$
+The first traveler will then have a cost of $2K+1$, the second of $2K$. For $1 \leq i \leq L$, the $i^{th}$ traveler will have a cost of $2(K-i\mod{(K+1)})+1$
 
 Therefore we have:
-
 \[
 \sum_{i=1}^{L}(2(K-i\mod{(K+1)})+1)
+= L(2K + 1) - 2\left(\left\lfloor \frac{L}{K+1} \right\rfloor \sum_{i=1}^{K+1}i + \sum_{i=1}^{L-\left\lfloor \frac{L}{K+1} \right\rfloor}i\right)
 \]
-\[
-= 2K + L - 2\left(\lfloor \frac{L}{K+1} \rfloor \sum_{i=1}^{K+1}i + \sum_{i=1}^{L-\lfloor \frac{L}{K+1} \rfloor}i\right)
-\]
-\[
-= 2K + L - 2\left(\lfloor \frac{L}{K+1} \rfloor\frac{(K+1)(K+2)}{2} + \frac{(L-\lfloor \frac{L}{K+1} \rfloor)(L-\lfloor \frac{L}{K+1} \rfloor + 1)}{2}\right)
-\]
-\[
-= 2K + L - \lfloor \frac{L}{K+1} \rfloor(K+1)(K+2) - (L-\lfloor \frac{L}{K+1} \rfloor)(L-\lfloor \frac{L}{K+1} \rfloor + 1)
-\]
+\begin{eqnarray}
+&=& L(2K + 1) - 2\left(\left\lfloor \frac{L}{K+1} \right\rfloor\frac{(K+1)(K+2)}{2} + \frac{\left(L-\left\lfloor \frac{L}{K+1} \right\rfloor\right)\left(L-\left\lfloor \frac{L}{K+1} \right\rfloor + 1\right)}{2}\right)\nonumber \\
+&=& L(2K + 1) - \left\lfloor \frac{L}{K+1} \right\rfloor(K+1)(K+2) - \left(L-\left\lfloor \frac{L}{K+1} \right\rfloor\right)\left(L-\left\lfloor \frac{L}{K+1} \right\rfloor + 1\right).\nonumber
+\end{eqnarray}
 
 \end{description}
+\end{proof}
 
 \subsection{Conclusion for the deterministic approach}
-We note $P_0$ the proposition when we don't have any communication, $P_1$ when we have partial communication and $P_2$ for complete communication.
-\paragraph{} We note X = ${2K + L - \lfloor \frac{L}{K+1} \rfloor(K+1)(K+2) - (L-\lfloor \frac{L}{K+1} \rfloor)(L-\lfloor \frac{L}{K+1} \rfloor + 1)}$
+\paragraph{} We note $\phi(K,L) = {L(2K + 1) - \left\lfloor \frac{L}{K+1} \right\rfloor(K+1)(K+2) -\left (L-\left\lfloor \frac{L}{K+1} \right\rfloor\right)\left(L-\left\lfloor \frac{L}{K+1} \right\rfloor + 1\right)}$.
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -560,13 +518,13 @@ We note $P_0$ the proposition when we don't have any communication, $P_1$ when w
 \hline
  between $T_{fd}$ and $T_{fa}$  & ${2K + 1}$ & ${K+1}$ & ${2(K+1)-L}$ & ${K+1}$ & ${2(K+1)-L}$     \\ 
 \hline
-between $T_{fd}$ and $ T_{la}$  & ${2K+1}$ & ${ 2K - L^2}$ & X & ${2K+L}$  & ${2K+L}$ \\ 
+between $T_{fd}$ and $ T_{la}$  & ${2K+1}$ & ${ 2K - L^2}$ & $\phi(K,L)$ & ${2K+L}$  & ${2K+L}$ \\ 
 \hline
 \end{tabular}
 \end{center}
 
 
-\section{Bounds of competitiveness with multiple travellers: randomized algorithms}
+\section{Bounds of competitiveness: randomized algorithms}
 
 % K blocked edges, L travellers, complete communication
 Now we consider the randomized online algorithms for $K$ blocked edges and $L$ travellers with complete communication: we assign a probability $pi$ to each path $Pi$ and execute a draw: let the travellers crosses the path one by one, if the first traveller is blocked, leave him at the blocked point and let the second traveller to start the process; if all the travellers are blocked, then let the first traveller return to $s$ and restarted the process. 

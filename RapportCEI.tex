@@ -489,25 +489,25 @@ Therefore we have:
 
 \item[$\bullet$] Case 4: between $T_{fd}$ and $T_{la}$ and $K<L$
 
-We redo the same pattern as in the 3rd case, but there will be more than one traveler on the same road. The $i^{th}$ traveler will take the $i\mod{(K+1)}^{th}$ path.
+We redo the same pattern as in the 3rd case, but there will be more than one traveler on the same road. The $i^{th}$ traveler will take the $i\bmod{(K+1)}^{th}$ path.
 
-The first traveler will then have a cost of $2K+1$, the second of $2K$. For $1 \leq i \leq L$, the $i^{th}$ traveler will have a cost of $2(K-i\mod{(K+1)})+1$
+The first traveler will then have a cost of $2K+1$, the second of $2K$. For $1 \leq i \leq L$, the $i^{th}$ traveler will have a cost of $2(K-i\bmod{(K+1)})+1$
 
 Therefore we have:
 \[
-\sum_{i=1}^{L}(2(K-i\mod{(K+1)})+1)
-= L(2K + 1) - 2\left(\left\lfloor \frac{L}{K+1} \right\rfloor \sum_{i=1}^{K+1}i + \sum_{i=1}^{L-\left\lfloor \frac{L}{K+1} \right\rfloor}i\right)
+\sum_{i=1}^{L}(2(K-(i-1)\bmod{(K+1)})+1) = L(2K+1) - 2\sum_{i=0}^{L-1}i\bmod{(K+1)}
 \]
 \begin{eqnarray}
-&=& L(2K + 1) - 2\left(\left\lfloor \frac{L}{K+1} \right\rfloor\frac{(K+1)(K+2)}{2} + \frac{\left(L-\left\lfloor \frac{L}{K+1} \right\rfloor\right)\left(L-\left\lfloor \frac{L}{K+1} \right\rfloor + 1\right)}{2}\right)\nonumber \\
-&=& L(2K + 1) - \left\lfloor \frac{L}{K+1} \right\rfloor(K+1)(K+2) - \left(L-\left\lfloor \frac{L}{K+1} \right\rfloor\right)\left(L-\left\lfloor \frac{L}{K+1} \right\rfloor + 1\right).\nonumber
+&=& L(2K + 1) - 2\left(\left\lfloor \frac{L-1}{K+1} \right\rfloor \sum_{i=0}^{K}i + \sum_{i=0}^{(L-1)\bmod(K+1)}i\right) \nonumber \\
+&=& L(2K + 1) - 2\left(\left\lfloor \frac{L-1}{K+1} \right\rfloor\frac{K(K+1)}{2} + \frac{\left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right)}{2}\right)\nonumber \\
+&=& L(2K + 1) - \left\lfloor \frac{L-1}{K+1} \right\rfloor K(K+1)- \left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right).\nonumber
 \end{eqnarray}
 
 \end{description}
 \end{proof}
 
 \subsection{Conclusion for the deterministic approach}
-\paragraph{} We note $\phi(K,L) = {L(2K + 1) - \left\lfloor \frac{L}{K+1} \right\rfloor(K+1)(K+2) -\left (L-\left\lfloor \frac{L}{K+1} \right\rfloor\right)\left(L-\left\lfloor \frac{L}{K+1} \right\rfloor + 1\right)}$.
+\paragraph{} We note $\phi(K,L) = {L(2K + 1) - \left\lfloor \frac{L-1}{K+1} \right\rfloor K(K+1)- \left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right)}$.
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}

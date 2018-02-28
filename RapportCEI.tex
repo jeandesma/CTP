@@ -525,68 +525,63 @@ between $T_{fd}$ and $ T_{la}$  & ${2K+1}$ & ${ 2K - L^2}$ & $\phi(K,L)$ & ${2K+
 
 
 \section{Bounds of competitiveness: randomized algorithms}
-
+\subsection{Complete communication}
 % K blocked edges, L travellers, complete communication
-Now we consider the randomized online algorithms for $K$ blocked edges and $L$ travellers with complete communication: we assign a probability $pi$ to each path $Pi$ and execute a draw: let the travellers crosses the path one by one, if the first traveller is blocked, leave him at the blocked point and let the second traveller to start the process; if all the travellers are blocked, then let the first traveller return to $s$ and restarted the process. 
+Now we consider the randomized online algorithms for $K$ blocked edges and $L$ travellers with complete communication: we assign a probability $p_i$ to each path $P_i$ and execute a draw: let the travellers crosses the path one by one, if the first traveller is blocked, leave him at the blocked point and let the second traveller to start the process; if all the travellers are blocked, then let the first traveller return to $s$ and restarted the process. 
 We can get:
 
 \begin{lemma}
-If we have more travellers than blocked edges, there is no randomized online algorithm with competitive ratio less than:
-\[
-\frac{k+2}{2}
-\]
+If we have more travellers than blocked edges, there is no randomized online algorithm with competitive ratio less than $\frac{k+2}{2}$.
 \label{lemma_moretr}
 \end{lemma}
 
 \begin{proof} 
 With $K$ smaller than $L$, it is certain that we do not have to let a traveller return to s before we find all the blocked edges. If the algorithm is successful on its $(l+1)^{\text{th}}$ try, only the $(l+1)^{\text{th}}$ try cost ($1+ \eta$) and so the total cost will be:
-\[
+\begin{equation}
 (l-1)\cdot 1 + (1+\eta) = l+\eta
-\]
+\end{equation}
 and the probability will be: 
-\[
+\begin{equation}
 \frac{1}{l+1}
-\]
+\end{equation}
 Hence, its expected cost is at least:
-\begin{displaymath}
+\begin{equation}
 \sum_{l=1}^{k+1}(l+\eta)\cdot \frac{1}{l+1} = \frac{K+2}{2}+\eta
-\end{displaymath}
+\end{equation}
 As we know, the expected optimal offline cost is $1 + \eta$, so the competitive ratio is 
-\[
-\frac{K+2}{2}.
-\]
+\begin{equation}
+\frac{K+2}{2} 
+\end{equation}.
 \end{proof}
 
 \begin{lemma}
-If we have less travellers than blocked edges $ (K > L )$, there is no randomized online algorithm with competitive ratio less than:
-\[
-K+2-L+ \frac{L(L-1)}{2(K+1)}
-\]
+If we have less travellers than blocked edges $ (K > L )$, there is no randomized online algorithm with competitive ratio less than $
+K+2-L+ \frac{L(L-1)}{2(K+1)}$.
 \end{lemma}
 
 \begin{proof}
-Similar with the proof of ~\ref{lemma_moretr}, if the algorithm is successful on its $(l+1)^{\text{th}}$ try, the probability will be: 
-\[
+Similar with the proof of Lemma~\ref{lemma_moretr}, if the algorithm is successful on its $(l+1)^{\text{th}}$ try, the probability will be: 
+\begin{equation}
 \frac{1}{l+1}
-\]
+\end{equation}
 But to calculus the cost, we have to consider two possibilities: 
-if $l < L$, which means we have find all the blocked edges without letting any traveller to return to $s$, the cost will be 
-\[
+\\if $l < L$, which means we have find all the blocked edges without letting any traveller to return to $s$, the cost will be 
+\begin{equation}
 (l-1)\cdot1 + 1 +\eta = l + \eta;
-\]
+\end{equation}
 if $l > L$, it means that we have not find all the blocked edges after letting all the travellers depart $s$,  so we have to let $(l-L)$ travellers return to $s$ and restart the process. In this case, there will be $L$ travellers with cost 1, $(l-L-1)$ travellers with cost 2 and the last traveller with cost $(2+\eta)$. So the total cost will be:
-\[
+\begin{equation}
 L\cdot 1 + (l-L-1)\cdot2 + 2 +\eta = 2l - L + \eta .
-\]
+\end{equation}
 So, its expected cost is at least:
-\[
+\begin{equation}
 \sum_{l=1}^{L}(l+\eta)\cdot \frac{1}{l+1}  +  \sum_{L+1}^{K+1}(2l-L+\eta)\cdot \frac{1}{l+1}
  =K+2-L+ \frac{L(L-1)}{2(K+1)} + \eta
-\]
+\end{equation}
 As we know, the expected optimal off-line cost is $1 + \eta$, so the competitive ratio is 
-\[
-K+2-L+ \frac{L(L-1)}{2(K+1)}.
-\]
+\begin{equation}
+K+2-L+ \frac{L(L-1)}{2(K+1)}
+\end{equation}
 \end{proof}
 
 If we consider the special case $L=1$ which means only one traveller, the competitive ratio becomes:
@@ -595,7 +590,68 @@ K+2-L+ \frac{L(L-1)}{2(K+1)} = K+2-1 = K+1
 \]
 This result corresponds to the randomized case of Bender et al.~\cite{BeWe15}.
 
+\subsection{No communication}
+
+% K blocked edges, L travellers, complete communication
+In the last part, we have discussed randomized online algorithms with total communication, where all the travellers can both send and receive messages. Now we will begin to study randomised cases without communication. 
+
+\begin{lemma}
+Considering the distance taken by all travellers after the last arrived (distance between $T_{fd} \mbox{\ and } T_{la}$), there is no randomized online algorithm with competitive ratio less than $ L(K+1)$.
+\end{lemma}
+
+\begin{proof} 
+According to the result of Bender et al.~\cite{BeWe15}, in randomized case, the competitive ratio for only one traveller is $K+1$. When there is no communication between the travellers, all the travellers make choices independently. In this case, all the $L$ travellers have to reach the target, so the obviously the result becomes $L$ times $K+1$.
+\end{proof}
+
+\begin{lemma}
+Considering the distance taken by all travellers before the first arrived (distance between $T_{fd} \mbox{\ and } T_{fa}$), there is no randomized online algorithm with competitive ratio less than:
+\begin{equation}
+\sum_{l=1}^{K+1}\frac{(K-t+2)^{L} - (K-t+1)^{L}}{(K+1)^{L}}\cdot (\frac{2l-2}{L}+1)
+\label{cr_rand}
+\end{equation}
+\end{lemma}
+
+In this case, we have made an assumption which is different from the cases with complete communication: in the beginning, instead of setting off one by one, all the travellers set off together, which is more meaningful in the real world. So when the first travellers reached the target, the travellers, who had set off together with these lucky travellers but were blocked, are on the way back to the source $s$.
+
+\begin{proof} 
+\\The probability that the algorithm is successful on its $1^{\text{th}}$ try is: $1-(\frac{K}{K+1})^{L}$;
+\\The probability that the algorithm is successful on its $2^{\text{th}}$ try is: $(\frac{K}{K+1})^{L} \cdot [1-(\frac{K-1}{K})^{L}]$;
+\\The probability that the algorithm is successful on its $l^{\text{th}}$ try is: 
+\[
+\ (\frac{K}{K+1})^{L} \cdot  (\frac{K-1}{K})^{L}\cdots  (\frac{K-l+2}{K-l+3})^{L}\cdot [1-(\frac{K-l+1}{K-l+2})^{L}] = \frac{(K-t+2)^{L} - (K-t+1)^{L}}{(K+1)^{L}}
+\]
+And according to the assumption, the cost will be: $(1+\eta)\cdot L + 2(l-1) $, so the total expected cost is:
+\begin{equation}
+\sum_{l=1}^{K+1}\frac{(K-t+2)^{L} - (K-t+1)^{L}}{(K+1)^{L}}\cdot ((1+\eta)\cdot L + 2(l-1) )
+\end{equation}
+As the expected optimal off-line cost is $L(1 + \eta)$, so we can find the result (\ref{cr_rand}).
+\end{proof}
+
+\subsection{Conclusion for randomized approaches} 
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & $P_0$ & \multicolumn{2}{c|}{$P_2$} \\ 
+ \hline
+ & & $K<L$ & $K\geq L$ \\ 
+\hline
+ between $T_{fd}$ and $T_{fa}$  & $\sum_{l=1}^{K+1}\frac{(K-t+2)^{L} - (K-t+1)^{L}}{(K+1)^{L}}\cdot (\frac{2l-2}{L}+1)$ & $\frac{K+2}{2}$ & $K+2-L+\frac{L(L-1)}{2(K+1)}$     \\ 
+\hline
+between $T_{fd}$ and $ T_{la}$  & $L(K+1)$ &  &   \\ 
+\hline
+\end{tabular}
+\end{center}
+
+
+\section{Conclusion}
+
+à faire, avec tableau
+
+
+
 \bibliographystyle{plain}
 \bibliography{ctp.bib}
 
 \end{document}
+

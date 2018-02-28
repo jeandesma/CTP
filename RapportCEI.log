@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.16)  28 FEB 2018 20:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.23)  28 FEB 2018 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -695,19 +695,29 @@ Overfull \hbox (20.548pt too wide) in paragraph at lines 510--511
 
 [8]
 
-LaTeX Warning: Citation `BeWe15' on page 9 undefined on input line 596.
+LaTeX Warning: Citation `BeWe15' on page 9 undefined on input line 591.
+
+
+LaTeX Warning: Citation `BeWe15' on page 9 undefined on input line 603.
+
+[9]
+
+LaTeX Warning: Reference `cr_rand' on page 10 undefined on input line 627.
 
 No file RapportCEI.bbl.
-[9] (./RapportCEI.aux)
+[10] (./RapportCEI.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 15109 strings out of 492995
- 312937 string characters out of 6132704
+ 15110 strings out of 492995
+ 312946 string characters out of 6132704
  353379 words of memory out of 5000000
- 18346 multiletter control sequences out of 15000+600000
+ 18347 multiletter control sequences out of 15000+600000
  12752 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,9n,56p,1297b,603s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -717,19 +727,20 @@ Here is how much of TeX's memory you used:
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
 usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
-sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
-/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
-/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
-xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
-ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
-e/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on RapportCEI.pdf (9 pages, 202464 bytes).
+sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
+/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
+ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
+al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
+/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/t
+exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
+/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
+2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on RapportCEI.pdf (10 pages, 214838 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 104 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

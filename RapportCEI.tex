@@ -537,21 +537,21 @@ If we have more travellers than blocked edges, there is no randomized online alg
 
 \begin{proof} 
 With $K$ smaller than $L$, it is certain that we do not have to let a traveller return to s before we find all the blocked edges. If the algorithm is successful on its $(l+1)^{\text{th}}$ try, only the $(l+1)^{\text{th}}$ try cost ($1+ \eta$) and so the total cost will be:
-\begin{equation}
+\[
 (l-1)\cdot 1 + (1+\eta) = l+\eta
-\end{equation}
+\]
 and the probability will be: 
-\begin{equation}
+\[
 \frac{1}{l+1}
-\end{equation}
+\]
 Hence, its expected cost is at least:
-\begin{equation}
+\[
 \sum_{l=1}^{k+1}(l+\eta)\cdot \frac{1}{l+1} = \frac{K+2}{2}+\eta
-\end{equation}
+\]
 As we know, the expected optimal offline cost is $1 + \eta$, so the competitive ratio is 
-\begin{equation}
-\frac{K+2}{2} 
-\end{equation}.
+\[
+\frac{K+2}{2} .
+\]
 \end{proof}
 
 \begin{lemma}
@@ -561,27 +561,27 @@ K+2-L+ \frac{L(L-1)}{2(K+1)}$.
 
 \begin{proof}
 Similar with the proof of Lemma~\ref{lemma_moretr}, if the algorithm is successful on its $(l+1)^{\text{th}}$ try, the probability will be: 
-\begin{equation}
+\[
 \frac{1}{l+1}
-\end{equation}
+\]
 But to calculus the cost, we have to consider two possibilities: 
 \\if $l < L$, which means we have find all the blocked edges without letting any traveller to return to $s$, the cost will be 
-\begin{equation}
+\[
 (l-1)\cdot1 + 1 +\eta = l + \eta;
-\end{equation}
+\]
 if $l > L$, it means that we have not find all the blocked edges after letting all the travellers depart $s$,  so we have to let $(l-L)$ travellers return to $s$ and restart the process. In this case, there will be $L$ travellers with cost 1, $(l-L-1)$ travellers with cost 2 and the last traveller with cost $(2+\eta)$. So the total cost will be:
-\begin{equation}
+\[
 L\cdot 1 + (l-L-1)\cdot2 + 2 +\eta = 2l - L + \eta .
-\end{equation}
+\]
 So, its expected cost is at least:
-\begin{equation}
+\[
 \sum_{l=1}^{L}(l+\eta)\cdot \frac{1}{l+1}  +  \sum_{L+1}^{K+1}(2l-L+\eta)\cdot \frac{1}{l+1}
  =K+2-L+ \frac{L(L-1)}{2(K+1)} + \eta
-\end{equation}
+\]
 As we know, the expected optimal off-line cost is $1 + \eta$, so the competitive ratio is 
-\begin{equation}
+\[
 K+2-L+ \frac{L(L-1)}{2(K+1)}
-\end{equation}
+\]
 \end{proof}
 
 If we consider the special case $L=1$ which means only one traveller, the competitive ratio becomes:
@@ -621,9 +621,9 @@ In this case, we have made an assumption which is different from the cases with 
 \ (\frac{K}{K+1})^{L} \cdot  (\frac{K-1}{K})^{L}\cdots  (\frac{K-l+2}{K-l+3})^{L}\cdot [1-(\frac{K-l+1}{K-l+2})^{L}] = \frac{(K-t+2)^{L} - (K-t+1)^{L}}{(K+1)^{L}}
 \]
 And according to the assumption, the cost will be: $(1+\eta)\cdot L + 2(l-1) $, so the total expected cost is:
-\begin{equation}
+\[
 \sum_{l=1}^{K+1}\frac{(K-t+2)^{L} - (K-t+1)^{L}}{(K+1)^{L}}\cdot ((1+\eta)\cdot L + 2(l-1) )
-\end{equation}
+\]
 As the expected optimal off-line cost is $L(1 + \eta)$, so we can find the result (\ref{cr_rand}).
 \end{proof}
 

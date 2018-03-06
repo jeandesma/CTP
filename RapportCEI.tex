@@ -14,6 +14,7 @@
 \usepackage{amsfonts}%
 \usepackage{amssymb}%
 \usepackage{dsfont}
+\usepackage{float}
 %\usepackage{graphicx}
 \usepackage[latin1]{inputenc} 
 %\usepackage[T1]{fontenc} 
@@ -87,7 +88,7 @@
 
 \begin{document}
 
-\title{Canadian travellers minimize the traversed distance: definitions, bounds and heuristics}
+\title{Canadian travelers minimize the traversed distance: definitions, bounds and heuristics}
 
 \maketitle
 
@@ -105,26 +106,26 @@
 
 \section{Introduction}
 
-The \textit{Canadian Traveller Problem} (CTP) was introduced by Papadimitriou and Yannakakis~\cite{PaYa91}. This is a generalization of the \textit{Shortest Path Problem}. Given an undirected weighted graph $G=(V,E,\omega)$ and two nodes $s,t \in V$, the objective is to design a strategy in order to make a traveller walk from $s$ to $t$ through the graph $G$, knowing that some edges can be blocked. The traveller ignores which edges are blocked when he begins and discover them when he visits an adjacent node. The $k$-\textit{Canadian Traveller Problem} (\kctp) is the parameterized variant of CTP where we specify an upper bound for the total number of blocked edges. Both CTP and \kctp ~are PSPACE-complete~\cite{BaSc91,PaYa91}.
+The \textit{Canadian traveler Problem} (CTP) was introduced by Papadimitriou and Yannakakis~\cite{PaYa91}. This is a generalization of the \textit{Shortest Path Problem}. Given an undirected weighted graph $G=(V,E,\omega)$ and two nodes $s,t \in V$, the objective is to design a strategy in order to make a traveler walk from $s$ to $t$ through the graph $G$, knowing that some edges can be blocked. The traveler ignores which edges are blocked when he begins and discover them when he visits an adjacent node. The $k$-\textit{Canadian traveler Problem} (\kctp) is the parameterized variant of CTP where we specify an upper bound for the total number of blocked edges. Both CTP and \kctp ~are PSPACE-complete~\cite{BaSc91,PaYa91}.
 
-\paragraph{State-of-the-art:}Several strategies have been designed and studied through the competitive analysis, which is a way to assess the quality of an online algorithm. A first class of strategies to be considered are deterministic. Westphal proved that there is no deterministic algorithm that can achieve a better competitive ratio than $2k+1$ where $k$ is an upper bound of the number of blockages and that this ratio is achieved by \textsc{reposition} algorithm~\cite{We08}. However, in practice (for example in the case of an urban network), returning to node $s$ everytime the traveller is blocked does not seem to be an efficient strategy. This is why Xu et al. introduced the \textsc{greedy} algorithm for the CTP which achieves a $2^{k+1}-1$ ratio~\cite{XuHuSuZh09}. For grids, they showed that the \textsc{greedy} strategy achieves a $\mathcal{O}\left(1\right)$ ratio, independent of $k$, under realistic hypotheses. Both \textsc{greedy} and \textsc{reposition} strategies are executed in polynomial time.
+\paragraph{State-of-the-art:}Several strategies have been designed and studied through the competitive analysis, which is a way to assess the quality of an online algorithm. A first class of strategies to be considered are deterministic. Westphal proved that there is no deterministic algorithm that can achieve a better competitive ratio than $2k+1$ where $k$ is an upper bound of the number of blockages and that this ratio is achieved by \textsc{reposition} algorithm~\cite{We08}. However, in practice (for example in the case of an urban network), returning to node $s$ everytime the traveler is blocked does not seem to be an efficient strategy. This is why Xu et al. introduced the \textsc{greedy} algorithm for the CTP which achieves a $2^{k+1}-1$ ratio~\cite{XuHuSuZh09}. For grids, they showed that the \textsc{greedy} strategy achieves a $\mathcal{O}\left(1\right)$ ratio, independent of $k$, under realistic hypotheses. Both \textsc{greedy} and \textsc{reposition} strategies are executed in polynomial time.
 
-A second class of strategies are randomized. We evaluate these strategies by supposing that an oblivious adversary is setting the blocked edges. Westphal proved that there is no randomized algorithm that can achieve a ratio lower than $k+1$~\cite{We08}. Recently, two randomized algorithms have been proposed. Demaine et al. designed a strategy for arbitrary graphs with a ratio $\left(1+\frac{\sqrt{2}}{2}\right)k+1$. This is executed in time $\mathcal{O}\left(k\mu^2\card{E}^2\right)$ where $\mu$ is an parameter that can potentially be exponential~\cite{DeHuLiSa14}. However, for a rather large class of graph (graphs with a reasonable number of groups of path, where a group of path is a set of paths which have the same length), this strategy offers better results than deterministic methods and is executed in polynomial time. Furthermore, Bender et al. studied the specific case of node-disjoint-paths graphs and proposed a strategy of ratio $\left(k+1\right)$ and with a polynomial running time for this kind of graphs~\cite{BeWe15}. Their method consists in a randomized \textsc{reposition}: we assign a probability $p_i$ to each path $P_i$ and execute a draw: the traveller crosses the path and, if he is blocked, returns to $s$ and restarts the process.
+A second class of strategies are randomized. We evaluate these strategies by supposing that an oblivious adversary is setting the blocked edges. Westphal proved that there is no randomized algorithm that can achieve a ratio lower than $k+1$~\cite{We08}. Recently, two randomized algorithms have been proposed. Demaine et al. designed a strategy for arbitrary graphs with a ratio $\left(1+\frac{\sqrt{2}}{2}\right)k+1$. This is executed in time $\mathcal{O}\left(k\mu^2\card{E}^2\right)$ where $\mu$ is an parameter that can potentially be exponential~\cite{DeHuLiSa14}. However, for a rather large class of graph (graphs with a reasonable number of groups of path, where a group of path is a set of paths which have the same length), this strategy offers better results than deterministic methods and is executed in polynomial time. Furthermore, Bender et al. studied the specific case of node-disjoint-paths graphs and proposed a strategy of ratio $\left(k+1\right)$ and with a polynomial running time for this kind of graphs~\cite{BeWe15}. Their method consists in a randomized \textsc{reposition}: we assign a probability $p_i$ to each path $P_i$ and execute a draw: the traveler crosses the path and, if he is blocked, returns to $s$ and restarts the process.
 
 % \paragraph{Contributions:} The main objective of this study is to design a randomized strategy which has a $(K+1)$-competitive ratio for graphs $G$. Here is a list of our contributions:
 % \begin{itemize}
 % \item We introduce the \knctp ~which the two-parameters variant of CTP where $K$ is the upper bounded on the number of blocked edges and $n$ is the exact number of simple \stpaths.
 % \item We prove that the competitive ratio of the randomized reposition strategy on $K$-CTP, noted $\arb$, is at least $2k+1$ for any kind of graphs. It implies that this method is specific for a certain class of graphs, containing at least node-disjoint paths instances.
 % \item We propose an optimal randomized strategy to treat graphs which fulfils the following condition: there is a $\left(K+1\right)$-partition $\mcalp_1 \cup \ldots \cup \mcalp_{K+1}$ of the set of simple \stpaths ~such that, for any path $P_i \in \mcalp_i$ ,$P_j \in \mcalp_j$, $j\neq i$, $P_i$ and $P_j$ are node-disjoint. Its competitive ratio is $K+1$.
-% \item We build a randomized strategy called the Canadian Traveller Random Search (CTRS) for graphs such that simple \stpaths ~have the same cost. We note it $\ars$. The competitive ratio is $K+1$. This randomized strategy is optimal for this kind of instances.
+% \item We build a randomized strategy called the Canadian Traveler Random Search (CTRS) for graphs such that simple \stpaths ~have the same cost. We note it $\ars$. The competitive ratio is $K+1$. This randomized strategy is optimal for this kind of instances.
 % \end{itemize}
 
 \section{Preliminaries}
 
-\subsection{Notations and definitions with a single traveller} 
-The traveller traverses an undirected weighted graph $G=\left(V,E,\omega\right)$, $n = \card{V}$ and $m = \card{E}$. He starts his walk at source $s \in V$. His objective is to reach target $t\in V$ with a minimum cost (also called distance), which is the sum of the weights of edges traversed. Set $E_*$ contains blocked edges, which means that when the traveller reaches an endpoint of one of these edges, he discovers that he cannot pass through it. A pair $\left(G,E_*\right)$ is called a \textit{road map}. From now on, we suppose that any road map $\left(G,E_*\right)$ is feasible, {\em i.e.} $s$ and $t$ are always connected in graph $G\backslash E_*$.
+\subsection{Notations and definitions with a single traveler} 
+The traveler traverses an undirected weighted graph $G=\left(V,E,\omega\right)$, $n = \card{V}$ and $m = \card{E}$. He starts his walk at source $s \in V$. His objective is to reach target $t\in V$ with a minimum cost (also called distance), which is the sum of the weights of edges traversed. Set $E_*$ contains blocked edges, which means that when the traveler reaches an endpoint of one of these edges, he discovers that he cannot pass through it. A pair $\left(G,E_*\right)$ is called a \textit{road map}. From now on, we suppose that any road map $\left(G,E_*\right)$ is feasible, {\em i.e.} $s$ and $t$ are always connected in graph $G\backslash E_*$.
 
-We remind the definition of the competitive ratio introduced in \cite{BoEl98}. Let $\omega_A\left(G,E_*\right)$ be the distance traversed by the traveller guided by a given strategy $A$ on graph $G$ from source $s$ to target $t$ with blocked edges $E_*$. The shortest \stpath ~in $G\backslash E_*$ is called the \textit{optimal offline path} of map $\left(G,E_*\right)$ and its cost, noted $\omegamin\left(G,E_*\right)$, is the optimal offline cost of map $\left(G,E_*\right)$. Strategy $A$ is $c_A$-competitive if, for any road map $\left(G,E_*\right)$:
+We remind the definition of the competitive ratio introduced in \cite{BoEl98}. Let $\omega_A\left(G,E_*\right)$ be the distance traversed by the traveler guided by a given strategy $A$ on graph $G$ from source $s$ to target $t$ with blocked edges $E_*$. The shortest \stpath ~in $G\backslash E_*$ is called the \textit{optimal offline path} of map $\left(G,E_*\right)$ and its cost, noted $\omegamin\left(G,E_*\right)$, is the optimal offline cost of map $\left(G,E_*\right)$. Strategy $A$ is $c_A$-competitive if, for any road map $\left(G,E_*\right)$:
 
 \[
 \omega_A\left(G,E_*\right) \leq c_A\omegamin\left(G,E_*\right) + \eta,
@@ -136,9 +137,9 @@ where $\eta$ is constant. For randomized strategies, it becomes:
 \mathbb{E}\left[\omega_A\left(G,E_*\right)\right] \leq c_A\omegamin\left(G,E_*\right) + \eta.
 \]
 
-\subsection{Notations and definitions with $L$ travellers}
+\subsection{Notations and definitions with $L$ travelers}
 
-The $L$ travelers traverses the same undirected weighted graph $G=\left(V,E,\omega\right)$, $n = \card{V}$ and $m = \card{E}$. They all start their walk at source $s \in V$. Their objective is to reach target $t\in V$ with a minimum cost (also called distance), which is the sum of the weights of edges traversed. We call $d_i$ the distance travelled by the $\ith{i}$ traveler. We consider that the $L$ travelers can communicate with each other. Set $E_*$ contains blocked edges, which means that when a traveller reaches an endpoint of one of these edges, he discovers that he cannot pass through it and communicate this information to the other travelers. A pair $\left(G,E_*\right)$ is called a \textit{road map}. From now on, we suppose that any road map $\left(G,E_*\right)$ is feasible, {\em i.e.} $s$ and $t$ are always connected in graph $G\backslash E_*$.
+The $L$ travelers traverses the same undirected weighted graph $G=\left(V,E,\omega\right)$, $n = \card{V}$ and $m = \card{E}$. They all start their walk at source $s \in V$. Their objective is to reach target $t\in V$ with a minimum cost (also called distance), which is the sum of the weights of edges traversed. We call $d_i$ the distance traveled by the $\ith{i}$ traveler. We consider that the $L$ travelers can communicate with each other. Set $E_*$ contains blocked edges, which means that when a traveler reaches an endpoint of one of these edges, he discovers that he cannot pass through it and communicate this information to the other travelers. A pair $\left(G,E_*\right)$ is called a \textit{road map}. From now on, we suppose that any road map $\left(G,E_*\right)$ is feasible, {\em i.e.} $s$ and $t$ are always connected in graph $G\backslash E_*$.
 
 We consider the following timeline which brings forth three times we will need to study this problem.
 \begin{center}
@@ -179,7 +180,7 @@ We will study this problem with three different types of communication. We will 
 
 \subsection{Complete communication}
 
-We consider the following deterministic and online algorithm for $K$ blocked edges and $L$ travellers with complete communication: we launch the travellers one at a time. If the traveller meets a blocked edge, it has to stay there and we launch another traveller who will have to take the second shortest path possible. Once again when this one meets a blocked edge, it stays there and another is launched. Let's call this strategy the $\textsc{abandonment}$ strategy.
+We consider the following deterministic and online algorithm for $K$ blocked edges and $L$ travelers with complete communication: we launch the travelers one at a time. If the traveler meets a blocked edge, it has to stay there and we launch another traveler who will have to take the second shortest path possible. Once again when this one meets a blocked edge, it stays there and another is launched. Let's call this strategy the $\textsc{abandonment}$ strategy.
 
 
 \begin{lemma} The cost of the abandonment strategy on the Westphal graph is $2(K+1) - \min(K+1,L)$ between $T_{fd}$ and $T_{fa}$ and $2K+L$ between $T_{fd}$ and $T_{la}$.
@@ -225,7 +226,6 @@ Therefore we have:
 
 We redo the three first steps of the 1st case and at $ T_{pa} $ the first traveler communicate the unblocked route to the target and therefore that the edge $(v_{K+1},t)$ is not blocked.
 
-At the time $t_{K+2}$ the K travelers blocked on the nodes $v_{1} ... v_K $ come back to the point s and then take the unblocked route $(s,v_{K+1},t)$. The $L-K-1$ travelers who have not left, take the unblocked route $(s,v_{K+1},t)$.
 
 Each traveler at the point $v_i$ will then arrive at the destination with a cost of $w_i + w_{K+1} + \varepsilon$. And each traveler still at the departure point will arrive at destination with a cost of $w_{K+1} + \varepsilon$.
 
@@ -300,8 +300,8 @@ Therefore we have the following costs for the Westphal graph:
 
 \paragraph{Initialization:} Let us take the example of $L = 1$ traveler. As shown in the existing literature we already have the cost equal to $K + 1$.
 
-\paragraph{Recurrence:} We know that there is a natural integer n number of travellers for which the cost is: if $n > K$, the cost is $K + 1$, and if $n < K$, the cost is $2K - L + 1$. Let's prove it for $n + 1$. 
-If $n + 1 < K$, since we are in the worst case scenario, the $n$ travellers have to discover the $K$ blocked edges before reaching the end. To do so, the cost is at least of $K$. Then $1$ is added to reach the end. However, our strategy has a cost of $K + 1$ also, therefore once again, for$ n + 1 < K$, the optimal cost is $K + 1$. 
+\paragraph{Recurrence:} We know that there is a natural integer n number of travelers for which the cost is: if $n > K$, the cost is $K + 1$, and if $n < K$, the cost is $2K - L + 1$. Let's prove it for $n + 1$. 
+If $n + 1 < K$, since we are in the worst case scenario, the $n$ travelers have to discover the $K$ blocked edges before reaching the end. To do so, the cost is at least of $K$. Then $1$ is added to reach the end. However, our strategy has a cost of $K + 1$ also, therefore once again, for$ n + 1 < K$, the optimal cost is $K + 1$. 
 
 Now if $n + 1 > K$, we launch the first traveler. He discovers one blocked edge and stays there. We are now facing a problem of $n$ travllers facing $K-1$ blockage. By recurrence hypothesis we know that for that case the cost is $2(K-1) - n + 1$ because $n > K - 1$. To that cost we add the cost of discovering the first blocked edge. We have $2(K + 1) - n + 2$ which is equal to $2K - (n + 1) - 1$. This shows the second part of the recurrence.
 
@@ -380,7 +380,7 @@ Therefore we have the following competitive ratio for any graph:
 \end{center}
 
 \subsection{No communication}
-We now consider the same following deterministic and online algorithm for K blocked edges and L travellers with no communication: they don't even know that they are a part of a fleet, so they will all leave at the first moment and will all arrive at the same time at the end point. We will call this strategy the multiple single traveler strategy.
+We now consider the same following deterministic and online algorithm for $K$ blocked edges and $L$ travelers with no communication: they don't even know that they are a part of a fleet, so they will all leave at the first moment and will all arrive at the same time at the end point. We will call this strategy the multiple single traveler strategy.
 
 \begin{lemma} The cost of the multiple single traveler strategy on the Westphal graph is $(2K+1)L$ between $T_{fd}$ and $T_{fa}$ and between $T_{fd}$ and $T_{la}$.
 \end{lemma}
@@ -409,14 +409,14 @@ In both cases, we will have:
 &\leq& L(2K+1) + o(1).\nonumber
 \end{eqnarray}
 
-For any graph, the best competitive ratio for the multiple single travaler strategy is $L(2K+1)$ for both problems: between $T_{fd}$ and $T_{fa}$ and between $T_{fd}$ and $T_{la}$.
+For any graph, the best competitive ratio for the multiple single traveler strategy is $L(2K+1)$ for both problems: between $T_{fd}$ and $T_{fa}$ and between $T_{fd}$ and $T_{la}$.
 \end{proof}
 
 \subsection{Partial communication}
 We now consider the same following deterministic and online algorithm for $K$ blocked edges and $L$ travelers with partial communication: the travelers can communicate at the beginning and decide what each traveler will do, they don't talk later on. We will have a rolling strategy where the first traveler takes the first route, the second one will wait a time a bit bigger than it would have taken the first one to arrive at destination if the first path was unblocked, and will take the second path and so on. In the cases where $K>L$ the last traveler will continue to take each following path when we are in the fist arrival problem. For the last arrival problem, we will minimize the worst case scenario by eliminating some paths for travelers as they will take different paths at the beginning and take the following one afterwards. Therefore they will not all be travelling all paths.
 
 \begin{lemma} The cost of the rolling travelers strategy on the Westphal graph is:
-
+\end{lemma}
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -428,7 +428,7 @@ We now consider the same following deterministic and online algorithm for $K$ bl
 \hline
 \end{tabular}
 \end{center}
-\end{lemma}
+
 
 \begin{proof} We consider the same Westphal graph as in the proof of the Lemma 3.1.1 and the same 4 problems. We consider that the times $t_i$ is i times the time needed to go from s to t with an unblocked path (in this case time needed to travel $1 + \varepsilon$). 
 
@@ -507,7 +507,7 @@ Therefore we have:
 \end{proof}
 
 \subsection{Conclusion for the deterministic approach}
-\paragraph{} We note $\phi(K,L) = {L(2K + 1) - \left\lfloor \frac{L-1}{K+1} \right\rfloor K(K+1)- \left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right)}$.
+We note $\phi(K,L) = {L(2K + 1) - \left\lfloor \frac{L-1}{K+1} \right\rfloor K(K+1)- \left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right)}$.
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -523,20 +523,78 @@ between $T_{fd}$ and $ T_{la}$  & ${2K+1}$ & ${ 2K - L^2}$ & $\phi(K,L)$ & ${2K+
 \end{tabular}
 \end{center}
 
+In order to have a better view of what $\phi(K,L)$ represents, we propose to the reader to look at the following graphs:
+
+First we set K and make L vary:
+\begin{figure*}
+    \centering
+    \begin{subfigure}[H]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{K20E.png}
+            \caption{$K$ set to 20}
+            \label{a}
+    \end{subfigure}
+    \begin{subfigure}[H]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{K40E.png}
+            \caption{$K$ set to 40}
+            \label{b}
+    \end{subfigure}
+
+    \begin{subfigure}[H]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{K60E.png}
+            \caption{$K$ set to 60}
+            \label{c}
+    \end{subfigure}
+    \begin{subfigure}[H]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{K80E.png}
+            \caption{$K$ set to 80}
+            \label{d}
+    \end{subfigure}
+    \caption{$K$ set to different values}\label{fig:ABCD}
+\end{figure*}
+
+Then we set $L$ and make $K$ vary:
+
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{L20E.png}
+            \caption{$L$ set to 20}
+            \label{a}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{L40E.png}
+            \caption{$L$ set to 40}
+            \label{b}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{L60E.png}
+            \caption{$L$ set to 60}
+            \label{c}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{L80E.png}
+            \caption{$L$ set to 80}
+            \label{d}
+    \end{subfigure}
+    \caption{$L$ set to different values}\label{fig:ABCD}
+\end{figure*}
+
+As one can expect, those curves are rising characteristic curves. Therefore the more travelers, the more blockages, the higher the cost. Nevertheless, one can notice that for a fixed number of blockages, the cost increases less as the number of travelers increase. The cost of getting one more traveler to the destination is then less important.
 
 \section{Bounds of competitiveness: randomized algorithms}
 \subsection{Complete communication}
-% K blocked edges, L travellers, complete communication
-Now we consider the randomized online algorithms for $K$ blocked edges and $L$ travellers with complete communication: we assign a probability $p_i$ to each path $P_i$ and execute a draw: let the travellers crosses the path one by one, if the first traveller is blocked, leave him at the blocked point and let the second traveller to start the process; if all the travellers are blocked, then let the first traveller return to $s$ and restarted the process. 
+% K blocked edges, L travelers, complete communication
+Now we consider the randomized online algorithms for $K$ blocked edges and $L$ travelers with complete communication: we assign a probability $p_i$ to each path $P_i$ and execute a draw: let the travelers crosses the path one by one, if the first traveler is blocked, leave him at the blocked point and let the second traveler to start the process; if all the travelers are blocked, then let the first traveler return to $s$ and restarted the process. 
 We can get:
 
 \begin{lemma}
-If we have more travellers than blocked edges, there is no randomized online algorithm with competitive ratio less than $\frac{k+2}{2}$.
+If we have more travelers than blocked edges, there is no randomized online algorithm with competitive ratio less than $\frac{k+2}{2}$.
 \label{lemma_moretr}
 \end{lemma}
 
 \begin{proof} 
-With $K$ smaller than $L$, it is certain that we do not have to let a traveller return to s before we find all the blocked edges. If the algorithm is successful on its $(l+1)^{\text{th}}$ try, only the $(l+1)^{\text{th}}$ try cost ($1+ \eta$) and so the total cost will be:
+With $K$ smaller than $L$, it is certain that we do not have to let a traveler return to s before we find all the blocked edges. If the algorithm is successful on its $(l+1)^{\text{th}}$ try, only the $(l+1)^{\text{th}}$ try cost ($1+ \eta$) and so the total cost will be:
 \[
 (l-1)\cdot 1 + (1+\eta) = l+\eta
 \]
@@ -555,7 +613,7 @@ As we know, the expected optimal offline cost is $1 + \eta$, so the competitive 
 \end{proof}
 
 \begin{lemma}
-If we have less travellers than blocked edges $ (K > L )$, there is no randomized online algorithm with competitive ratio less than $
+If we have less travelers than blocked edges $ (K > L )$, there is no randomized online algorithm with competitive ratio less than $
 K+2-L+ \frac{L(L-1)}{2(K+1)}$.
 \end{lemma}
 
@@ -565,11 +623,11 @@ Similar with the proof of Lemma~\ref{lemma_moretr}, if the algorithm is successf
 \frac{1}{l+1}
 \]
 But to calculus the cost, we have to consider two possibilities: 
-\\if $l < L$, which means we have find all the blocked edges without letting any traveller to return to $s$, the cost will be 
+\\if $l < L$, which means we have find all the blocked edges without letting any traveler to return to $s$, the cost will be 
 \[
 (l-1)\cdot1 + 1 +\eta = l + \eta;
 \]
-if $l > L$, it means that we have not find all the blocked edges after letting all the travellers depart $s$,  so we have to let $(l-L)$ travellers return to $s$ and restart the process. In this case, there will be $L$ travellers with cost 1, $(l-L-1)$ travellers with cost 2 and the last traveller with cost $(2+\eta)$. So the total cost will be:
+if $l > L$, it means that we have not find all the blocked edges after letting all the travelers depart $s$,  so we have to let $(l-L)$ travelers return to $s$ and restart the process. In this case, there will be $L$ travelers with cost 1, $(l-L-1)$ travelers with cost 2 and the last traveler with cost $(2+\eta)$. So the total cost will be:
 \[
 L\cdot 1 + (l-L-1)\cdot2 + 2 +\eta = 2l - L + \eta .
 \]
@@ -584,7 +642,7 @@ K+2-L+ \frac{L(L-1)}{2(K+1)}
 \]
 \end{proof}
 
-If we consider the special case $L=1$ which means only one traveller, the competitive ratio becomes:
+If we consider the special case $L=1$ which means only one traveler, the competitive ratio becomes:
 \[
 K+2-L+ \frac{L(L-1)}{2(K+1)} = K+2-1 = K+1
 \]
@@ -592,26 +650,26 @@ This result corresponds to the randomized case of Bender et al.~\cite{BeWe15}.
 
 \subsection{No communication}
 
-% K blocked edges, L travellers, complete communication
-In the last part, we have discussed randomized online algorithms with total communication, where all the travellers can both send and receive messages. Now we will begin to study randomised cases without communication. 
+% K blocked edges, L travelers, complete communication
+In the last part, we have discussed randomized online algorithms with total communication, where all the travelers can both send and receive messages. Now we will begin to study randomised cases without communication. 
 
 \begin{lemma}
-Considering the distance taken by all travellers after the last arrived (distance between $T_{fd} \mbox{\ and } T_{la}$), there is no randomized online algorithm with competitive ratio less than $ L(K+1)$.
+Considering the distance taken by all travelers after the last arrived (distance between $T_{fd} \mbox{\ and } T_{la}$), there is no randomized online algorithm with competitive ratio less than $ L(K+1)$.
 \end{lemma}
 
 \begin{proof} 
-According to the result of Bender et al.~\cite{BeWe15}, in randomized case, the competitive ratio for only one traveller is $K+1$. When there is no communication between the travellers, all the travellers make choices independently. In this case, all the $L$ travellers have to reach the target, so the obviously the result becomes $L$ times $K+1$.
+According to the result of Bender et al.~\cite{BeWe15}, in randomized case, the competitive ratio for only one traveler is $K+1$. When there is no communication between the travelers, all the travelers make choices independently. In this case, all the $L$ travelers have to reach the target, so the obviously the result becomes $L$ times $K+1$.
 \end{proof}
 
 \begin{lemma}
-Considering the distance taken by all travellers before the first arrived (distance between $T_{fd} \mbox{\ and } T_{fa}$), there is no randomized online algorithm with competitive ratio less than:
+Considering the distance taken by all travelers before the first arrived (distance between $T_{fd} \mbox{\ and } T_{fa}$), there is no randomized online algorithm with competitive ratio less than:
 \begin{equation}
 \sum_{l=1}^{K+1}\frac{(K-t+2)^{L} - (K-t+1)^{L}}{(K+1)^{L}}\cdot (\frac{2l-2}{L}+1)
 \label{cr_rand}
 \end{equation}
 \end{lemma}
 
-In this case, we have made an assumption which is different from the cases with complete communication: in the beginning, instead of setting off one by one, all the travellers set off together, which is more meaningful in the real world. So when the first travellers reached the target, the travellers, who had set off together with these lucky travellers but were blocked, are on the way back to the source $s$.
+In this case, we have made an assumption which is different from the cases with complete communication: in the beginning, instead of setting off one by one, all the travelers set off together, which is more meaningful in the real world. So when the first travelers reached the target, the travelers, who had set off together with these lucky travelers but were blocked, are on the way back to the source $s$.
 
 \begin{proof} 
 \\The probability that the algorithm is successful on its $1^{\text{th}}$ try is: $1-(\frac{K}{K+1})^{L}$;
@@ -654,4 +712,3 @@ between $T_{fd}$ and $ T_{la}$  & $L(K+1)$ &  &   \\
 \bibliography{ctp.bib}
 
 \end{document}
-

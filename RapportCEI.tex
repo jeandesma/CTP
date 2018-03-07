@@ -664,7 +664,7 @@ According to the result of Bender et al.~\cite{BeWe15}, in randomized case, the 
 \begin{lemma}
 Considering the distance taken by all travelers before the first arrived (distance between $T_{fd} \mbox{\ and } T_{fa}$), there is no randomized online algorithm with competitive ratio less than:
 \begin{equation}
-\sum_{l=1}^{K+1}\frac{(K-t+2)^{L} - (K-t+1)^{L}}{(K+1)^{L}}\cdot (\frac{2l-2}{L}+1)
+\sum_{l=1}^{K+1}\frac{(K-l+2)^{L} - (K-l+1)^{L}}{(K+1)^{L}}\cdot (\frac{2l-2}{L}+1)
 \label{cr_rand}
 \end{equation}
 \end{lemma}
@@ -676,7 +676,7 @@ In this case, we have made an assumption which is different from the cases with 
 \\The probability that the algorithm is successful on its $2^{\text{th}}$ try is: $(\frac{K}{K+1})^{L} \cdot [1-(\frac{K-1}{K})^{L}]$;
 \\The probability that the algorithm is successful on its $l^{\text{th}}$ try is: 
 \[
-\ (\frac{K}{K+1})^{L} \cdot  (\frac{K-1}{K})^{L}\cdots  (\frac{K-l+2}{K-l+3})^{L}\cdot [1-(\frac{K-l+1}{K-l+2})^{L}] = \frac{(K-t+2)^{L} - (K-t+1)^{L}}{(K+1)^{L}}
+\ (\frac{K}{K+1})^{L} \cdot  (\frac{K-1}{K})^{L}\cdots  (\frac{K-l+2}{K-l+3})^{L}\cdot [1-(\frac{K-l+1}{K-l+2})^{L}] = \frac{(K-l+2)^{L} - (K-l+1)^{L}}{(K+1)^{L}}
 \]
 And according to the assumption, the cost will be: $(1+\eta)\cdot L + 2(l-1) $, so the total expected cost is:
 \[
@@ -694,19 +694,66 @@ As the expected optimal off-line cost is $L(1 + \eta)$, so we can find the resul
  \hline
  & & $K<L$ & $K\geq L$ \\ 
 \hline
- between $T_{fd}$ and $T_{fa}$  & $\sum_{l=1}^{K+1}\frac{(K-t+2)^{L} - (K-t+1)^{L}}{(K+1)^{L}}\cdot (\frac{2l-2}{L}+1)$ & $\frac{K+2}{2}$ & $K+2-L+\frac{L(L-1)}{2(K+1)}$     \\ 
+ between $T_{fd}$ and $T_{fa}$  & $\sum_{l=1}^{K+1}\frac{(K-l+2)^{L} - (K-l+1)^{L}}{(K+1)^{L}}\cdot (\frac{2l-2}{L}+1)$ & $\frac{K+2}{2}$ & $K+2-L+\frac{L(L-1)}{2(K+1)}$     \\ 
 \hline
 between $T_{fd}$ and $ T_{la}$  & $L(K+1)$ &  &   \\ 
 \hline
 \end{tabular}
 \end{center}
 
+When we study the distances between $T_{fd}$ and $T_{fa}$, we have to notice that there is no meaning to compare the results of $P_0$ and $P_2$, because these two cases are based on different assumptions. For $P_0$, travelers sets off one by one while in $P_2$ all the travelers set off together.
+
+Furthermore,in order to have a better view of the long formula for $T_{fd}$ and $T_{fa}$ with $P_0$, we can look into [Figure 3].
+
+We can see that if we set L=1 for just one traveler, the result will be $K+1$, which correspond with the result of Bender et al.~\cite{BeWe15};when there are multiple travellers (L=20 for example), the performance depends on the number of blockages. If the number of blockages if less than or similar with the number of travellers, the performance is nearly optimal; but with the increase of blockages, the performance begin to drop faster and faster.
+
+If we fix K, we can see that the performance improves quickly with the growth of L, and tends to optimal.
+
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}[H]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{RandoK1.png}
+            \caption{$K$ set to 1}
+            \label{a}
+    \end{subfigure}
+    \begin{subfigure}[H]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{RandoK20.png}
+            \caption{$K$ set to 20}
+            \label{b}
+    \end{subfigure}
+
+    \begin{subfigure}[H]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{Randol1.png}
+            \caption{$L$ set to 1}
+            \label{c}
+    \end{subfigure}
+    \begin{subfigure}[H]{0.475\textwidth}
+            \includegraphics[width=\textwidth]{Randol20.png}
+            \caption{$L$ set to 20}
+            \label{d}
+    \end{subfigure}
+    \caption{$K$ and $L$ set to different values}\label{fig:ABCD}
+\end{figure*}
+
 
 \section{Conclusion}
+In this article, we have discussed the cost of distance for K-Canadian problem with deterministic approach and randomized approach, on considering different modes of communication. 
 
-à faire, avec tableau
+The numerical results could be useful in many applications. For example, for the cases of $T_{fd}$ and $T_{fa}$, we can judge whether a team of travelers can be more efficient in finding the target:
 
+(1)With deterministic approach, the cost is $2K+1$ with one traveler, so it makes no difference to use multiple travelers when there is no communication($P_0$); 
+\\with partial communication or complete communication, the more travelers we have, the better result we will get. Because the formula of the cost is $2(K+1)-L$ which concerns about the number of travelers, so if we want this result less than $2K+1$, we should have $L>1$.
 
+(2)With randomised approach, the cost becomes $K+1$ for only one traveler. When there is no communication, it is complicated and we can compare the formular with $K+1$ by figures;
+\\with complete communication, if we want the result better than $K+1$ which is the case of one traveler, we should have the following condition:
+\[
+(K+1)-(K+2-L+\frac{L(L-1)}{2(K+1)})>0
+\]
+so when $L>1$ and $2K+2>L$, multiple travelers can be better than only one traveler.
+
+For future work, we recommend to explore the possibility of establishing a bi-criteria that would include both distance and time. This would expand the direct applications of the K-Canadian travelers problem for a fleet of vehicles that wants to reach destination quickly without spending to much on gas. 
+Moreover, we recommend to apply the different communication systems (especially P0 et P1) with a time criteria. This would complete the previous work done by Zhang ~\cite{ZhXuQi11}.
 
 \bibliographystyle{plain}
 \bibliography{ctp.bib}

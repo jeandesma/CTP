@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.23)  5 MAR 2018 23:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.16)  13 MAR 2018 15:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -683,22 +683,16 @@ Overfull \hbox (24.97417pt too wide) in alignment at lines 345--350
  []
 
 [5] [6] [7]
-Overfull \hbox (14.41599pt too wide) in alignment at lines 500--504
+Overfull \hbox (48.05489pt too wide) in alignment at lines 498--504
  [][][] []
- []
-
-
-Overfull \hbox (20.548pt too wide) in paragraph at lines 510--511
- [] \OT1/cmr/m/n/10 We note $\OML/cmm/m/it/10 ^^^\OT1/cmr/m/n/10 (\OML/cmm/m/it
-/10 K; L\OT1/cmr/m/n/10 ) = []$. 
  []
 
 [8]
 
-LaTeX Warning: Citation `BeWe15' on page 9 undefined on input line 591.
+LaTeX Warning: Citation `BeWe15' on page 9 undefined on input line 590.
 
 
-LaTeX Warning: Citation `BeWe15' on page 9 undefined on input line 603.
+LaTeX Warning: Citation `BeWe15' on page 9 undefined on input line 602.
 
 [9]
 No file RapportCEI.bbl.
@@ -731,7 +725,7 @@ ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
 ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
 /2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
 2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on RapportCEI.pdf (10 pages, 214735 bytes).
+Output written on RapportCEI.pdf (10 pages, 214364 bytes).
 PDF statistics:
  104 PDF objects out of 1000 (max. 8388607)
  75 compressed objects within 1 object stream

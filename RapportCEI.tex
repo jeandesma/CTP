@@ -481,10 +481,10 @@ Therefore we have:
 
 \begin{eqnarray}
 \sum_{i=1}^{L}(2(K-i)+1)
-&=& 2K + L - 2\sum_{i=1}^{L}i
-= 2K + L - 2\frac{L(L+1)}{2} \nonumber \\
-&=& 2K + L(1-(L+1))
-= 2K - L^2.\nonumber
+&=& 2KL + L - 2\sum_{i=1}^{L}i
+= L(2K+1) - 2\frac{L(L+1)}{2} \nonumber \\
+&=& L(2K + 1-(L+1))
+= L(2K - L).\nonumber
 \end{eqnarray}
 
 \item[$\bullet$] Case 4: between $T_{fd}$ and $T_{la}$ and $K<L$
@@ -494,10 +494,10 @@ We redo the same pattern as in the 3rd case, but there will be more than one tra
 The first traveler will then have a cost of $2K+1$, the second of $2K$. For $1 \leq i \leq L$, the $i^{th}$ traveler will have a cost of $2(K-i\bmod{(K+1)})+1$
 
 Therefore we have:
-\[
-\sum_{i=1}^{L}(2(K-(i-1)\bmod{(K+1)})+1) = L(2K+1) - 2\sum_{i=0}^{L-1}i\bmod{(K+1)}
-\]
+
 \begin{eqnarray}
+\phi(K,L) &=& \sum_{i=1}^{L}(2(K-(i-1)\bmod{(K+1)})+1) \nonumber \\
+&=& L(2K+1) - 2\sum_{i=0}^{L-1}i\bmod{(K+1)} \nonumber \\
 &=& L(2K + 1) - 2\left(\left\lfloor \frac{L-1}{K+1} \right\rfloor \sum_{i=0}^{K}i + \sum_{i=0}^{(L-1)\bmod(K+1)}i\right) \nonumber \\
 &=& L(2K + 1) - 2\left(\left\lfloor \frac{L-1}{K+1} \right\rfloor\frac{K(K+1)}{2} + \frac{\left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right)}{2}\right)\nonumber \\
 &=& L(2K + 1) - \left\lfloor \frac{L-1}{K+1} \right\rfloor K(K+1)- \left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right).\nonumber
@@ -507,7 +507,6 @@ Therefore we have:
 \end{proof}
 
 \subsection{Conclusion for the deterministic approach}
-\paragraph{} We note $\phi(K,L) = {L(2K + 1) - \left\lfloor \frac{L-1}{K+1} \right\rfloor K(K+1)- \left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right)}$.
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -518,7 +517,7 @@ Therefore we have:
 \hline
  between $T_{fd}$ and $T_{fa}$  & ${2K + 1}$ & ${K+1}$ & ${2(K+1)-L}$ & ${K+1}$ & ${2(K+1)-L}$     \\ 
 \hline
-between $T_{fd}$ and $ T_{la}$  & ${2K+1}$ & ${ 2K - L^2}$ & $\phi(K,L)$ & ${2K+L}$  & ${2K+L}$ \\ 
+between $T_{fd}$ and $ T_{la}$  & ${2K+1}$ & $\phi(K,L)$ & ${ L(2K - L)}$ & ${2K+L}$  & ${2K+L}$ \\ 
 \hline
 \end{tabular}
 \end{center}

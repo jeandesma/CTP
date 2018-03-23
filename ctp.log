@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.16)  20 MAR 2018 12:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.23)  23 MAR 2018 15:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**RapportCEI.tex
-(./RapportCEI.tex
+**ctp.tex
+(./ctp.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
@@ -528,8 +528,8 @@ brarydecorations.footprints.code.tex))
 LaTeX Warning: Unused global option(s):
     [letter-size].
 
-(./RapportCEI.aux)
-\openout1 = `RapportCEI.aux'.
+(./ctp.aux)
+\openout1 = `ctp.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
 LaTeX Font Info:    ... okay on input line 88.
@@ -651,36 +651,9 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 LaTeX Warning: No \author given.
 
-
-LaTeX Warning: Citation `PaYa91' on page 1 undefined on input line 108.
-
-
-LaTeX Warning: Citation `BaSc91' on page 1 undefined on input line 108.
-
-
-LaTeX Warning: Citation `PaYa91' on page 1 undefined on input line 108.
-
-
-LaTeX Warning: Citation `We08' on page 1 undefined on input line 110.
-
-
-LaTeX Warning: Citation `XuHuSuZh09' on page 1 undefined on input line 110.
-
-
-LaTeX Warning: Citation `We08' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation `DeHuLiSa14' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation `BeWe15' on page 1 undefined on input line 112.
-
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation `BoEl98' on page 2 undefined on input line 127.
-
 [2] [3] [4] [5]
 Overfull \hbox (44.34424pt too wide) in alignment at lines 345--350
  [][][] []
@@ -696,51 +669,36 @@ Overfull \hbox (74.87546pt too wide) in alignment at lines 498--504
  [][][] []
  []
 
-[9] [10]
-
-LaTeX Warning: Citation `BeWe15' on page 11 undefined on input line 590.
-
-
-LaTeX Warning: Citation `BeWe15' on page 11 undefined on input line 602.
-
-[11]
-No file RapportCEI.bbl.
-[12] (./RapportCEI.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[9] [10] [11] [12] (./ctp.bbl [13]) [14] (./ctp.aux) ) 
 Here is how much of TeX's memory you used:
- 15108 strings out of 492995
- 312981 string characters out of 6132704
- 352495 words of memory out of 5000000
- 18347 multiletter control sequences out of 15000+600000
+ 15111 strings out of 492995
+ 312944 string characters out of 6132704
+ 352520 words of memory out of 5000000
+ 18348 multiletter control sequences out of 15000+600000
  12601 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,56p,1300b,603s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
-sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
-/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
-ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
-al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
-/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/t
-exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
-ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
-/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
-2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on RapportCEI.pdf (12 pages, 216253 bytes).
+ 55i,9n,56p,1293b,603s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2017/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb>
+Output written on ctp.pdf (14 pages, 223239 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
+ 117 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

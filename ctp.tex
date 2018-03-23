@@ -522,6 +522,65 @@ between $T_{fd}$ and $ T_{la}$  & ${2K+1}$ & $\phi(K,L)$ & ${ L(2K - L)}$ & ${2K
 \end{tabular}
 \end{center}
 
+In order to have a better view of what $\phi(K,L)$ represents, we propose to the reader to look at the following graphs:
+
+First we set K and make L vary:
+%\begin{figure*}
+%    \centering
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{K20E.png}
+%            \caption{$K$ set to 20}
+%            \label{a}
+%    \end{subfigure}
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{K40E.png}
+%            \caption{$K$ set to 40}
+%            \label{b}
+%    \end{subfigure}
+%
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{K60E.png}
+%            \caption{$K$ set to 60}
+%            \label{c}
+%    \end{subfigure}
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{K80E.png}
+%            \caption{$K$ set to 80}
+%            \label{d}
+%    \end{subfigure}
+%    \caption{$K$ set to different values}\label{fig:ABCD}
+%\end{figure*}
+
+Then we set $L$ and make $K$ vary:
+
+%\begin{figure*}[h!]
+%    \centering
+%    \begin{subfigure}[b]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{L20E.png}
+%            \caption{$L$ set to 20}
+%            \label{a}
+%    \end{subfigure}
+%    \begin{subfigure}[b]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{L40E.png}
+%            \caption{$L$ set to 40}
+%            \label{b}
+%    \end{subfigure}
+%
+%    \begin{subfigure}[b]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{L60E.png}
+%            \caption{$L$ set to 60}
+%            \label{c}
+%    \end{subfigure}
+%    \begin{subfigure}[b]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{L80E.png}
+%            \caption{$L$ set to 80}
+%            \label{d}
+%    \end{subfigure}
+%    \caption{$L$ set to different values}\label{fig:ABCD}
+%\end{figure*}
+
+As one can expect, those curves are rising characteristic curves. Therefore the more travelers, the more blockages, the higher the cost. Nevertheless, one can notice that for a fixed number of blockages, the cost increases less as the number of travelers increase. The cost of getting one more traveler to the destination is then less important.
+
 
 \section{Bounds of competitiveness: randomized algorithms}
 \subsection{Complete communication}
@@ -643,14 +702,64 @@ between $T_{fd}$ and $ T_{la}$  & $L(K+1)$ &  &   \\
 \end{center}
 
 
+When we study the distances between $T_{fd}$ and $T_{fa}$, we have to notice that there is no meaning to compare the results of $P_0$ and $P_2$, because these two cases are based on different assumptions. For $P_0$, travelers sets off one by one while in $P_2$ all the travelers set off together.
+
+Furthermore,in order to have a better view of the long formula for $T_{fd}$ and $T_{fa}$ with $P_0$, we can look into [Figure 3].
+
+We can see that if we set L=1 for just one traveler, the result will be $K+1$, which correspond with the result of Bender et al.~\cite{BeWe15};when there are multiple travellers (L=20 for example), the performance depends on the number of blockages. If the number of blockages if less than or similar with the number of travellers, the performance is nearly optimal; but with the increase of blockages, the performance begin to drop faster and faster.
+
+If we fix K, we can see that the performance improves quickly with the growth of L, and tends to optimal.
+
+%%%%
+%\begin{figure*}
+%    \centering
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{RandoK1.png}
+%            \caption{$K$ set to 1}
+%            \label{a}
+%    \end{subfigure}
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{RandoK20.png}
+%            \caption{$K$ set to 20}
+%            \label{b}
+%    \end{subfigure}
+%
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{Randol1.png}
+%            \caption{$L$ set to 1}
+%            \label{c}
+%    \end{subfigure}
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{Randol20.png}
+%            \caption{$L$ set to 20}
+%            \label{d}
+%    \end{subfigure}
+%    \caption{$K$ and $L$ set to different values}\label{fig:ABCD}
+%\end{figure*}
+%%%
+
+
 \section{Conclusion}
+In this article, we have discussed the cost of distance for K-Canadian problem with deterministic approach and randomized approach, on considering different modes of communication. 
 
-à faire, avec tableau
+The numerical results could be useful in many applications. For example, for the cases of $T_{fd}$ and $T_{fa}$, we can judge whether a team of travelers can be more efficient in finding the target:
 
+(1)With deterministic approach, the cost is $2K+1$ with one traveler, so it makes no difference to use multiple travelers when there is no communication($P_0$); 
+\\with partial communication or complete communication, the more travelers we have, the better result we will get. Because the formula of the cost is $2(K+1)-L$ which concerns about the number of travelers, so if we want this result less than $2K+1$, we should have $L>1$.
 
+(2)With randomised approach, the cost becomes $K+1$ for only one traveler. When there is no communication, it is complicated and we can compare the formular with $K+1$ by figures;
+\\with complete communication, if we want the result better than $K+1$ which is the case of one traveler, we should have the following condition:
+\[
+(K+1)-(K+2-L+\frac{L(L-1)}{2(K+1)})>0
+\]
+so when $L>1$ and $2K+2>L$, multiple travelers can be better than only one traveler.
+
+For future work, we recommend to explore the possibility of establishing a bi-criteria that would include both distance and time. This would expand the direct applications of the K-Canadian travelers problem for a fleet of vehicles that wants to reach destination quickly without spending to much on gas. 
+Moreover, we recommend to apply the different communication systems (especially P0 et P1) with a time criteria. This would complete the previous work done by Zhang ~\cite{ZhXuQi11}.
 
 \bibliographystyle{plain}
 \bibliography{ctp.bib}
 
 \end{document}
+
 

@@ -413,7 +413,7 @@ For any graph, the best competitive ratio for the multiple single traveler strat
 \end{proof}
 
 \subsection{Partial communication}
-We now consider the same following deterministic and online algorithm for $K$ blocked edges and $L$ travelers with partial communication: the travelers can communicate at the beginning and decide what each traveler will do, they don't talk later on. We will have a rolling strategy where the first traveler takes the first route, the second one will wait a time a bit bigger than it would have taken the first one to arrive at destination if the first path was unblocked, and will take the second path and so on. In the cases where $K>L$ the last traveler will continue to take each following path when we are in the fist arrival problem. For the last arrival problem, we will minimize the worst case scenario by eliminating some paths for travelers as they will take different paths at the beginning and take the following one afterwards. Therefore they will not all be travelling all paths.
+We now consider the same following deterministic and online algorithm for $K$ blocked edges and $L$ travelers with partial communication: the travelers can communicate at the beginning and decide what each traveler will do, they don't talk later on. We will have a rolling strategy where the first traveler takes the first route, the second one will wait a time a bit bigger than it would have taken the first one to arrive at destination if the first path was unblocked, and will take the second path and so on. In the cases where $K>L$ the last traveler will continue to take each following path when we are in the fist arrival problem. For the last arrival problem, we will minimize the worst case scenario by eliminating some paths for travelers as they will take different paths at the beginning and take the following one afterwards. Therefore they will not all be traveling all paths.
 
 \begin{lemma} The cost of the rolling travelers strategy on the Westphal graph is:
 \end{lemma}
@@ -544,7 +544,7 @@ First we set $K$ and make $L$ vary and then we set $L$ and make $K$ vary.
 
 
 
-As one can expect, those curves are rising characteristic curves. Therefore the more travelers, the more blockages, the higher the cost. Nevertheless, one can notice that for a fixed number of blockages, the cost increases less as the number of travelers increase. The cost of getting one more traveler to the destination is then less important.
+As one can expect, those curves are growing curves. Therefore the more travelers, the more blockages, the higher the cost. Nevertheless, one can notice that the tangent flattens out when the number of car approaches a multiple of $K+1$. Therefore, we can conclude that it is more interesting to use a multiple of $K+1$ number of car in this case.  
 
 
 \section{Bounds of competitiveness: randomized algorithms}
@@ -616,7 +616,7 @@ This result corresponds to the randomized case of Bender et al.~\cite{BeWe15}.
 \subsection{No communication}
 
 % K blocked edges, L travelers, complete communication
-In the last part, we have discussed randomized online algorithms with total communication, where all the travelers can both send and receive messages. Now we will begin to study randomised cases without communication. 
+In the last part, we have discussed randomized online algorithms with total communication, where all the travelers can both send and receive messages. Now we will begin to study randomized cases without communication. 
 
 \begin{lemma}
 Considering the distance taken by all travelers after the last arrived (distance between $T_{fd} \mbox{\ and } T_{la}$), there is no randomized online algorithm with competitive ratio less than $ L(K+1)$.
@@ -695,7 +695,7 @@ When we study the distances between $T_{fd}$ and $T_{fa}$, we have to notice tha
 
 Furthermore,in order to have a better view of the long formula for $T_{fd}$ and $T_{fa}$ with $P_0$, we can look into [Figure 3].
 
-We can see that if we set L=1 for just one traveler, the result will be $K+1$, which correspond with the result of Bender et al.~\cite{BeWe15};when there are multiple travellers (L=20 for example), the performance depends on the number of blockages. If the number of blockages if less than or similar with the number of travellers, the performance is nearly optimal; but with the increase of blockages, the performance begin to drop faster and faster.
+We can see that if we set L=1 for just one traveler, the result will be $K+1$, which correspond with the result of Bender et al.~\cite{BeWe15};when there are multiple travelers (L=20 for example), the performance depends on the number of blockages. If the number of blockages if less than or similar with the number of travelers, the performance is nearly optimal; but with the increase of blockages, the performance begin to drop faster and faster.
 
 If we fix K, we can see that the performance improves quickly with the growth of L, and tends to optimal.
 
@@ -736,7 +736,7 @@ The numerical results could be useful in many applications. For example, for the
 (1)With deterministic approach, the cost is $2K+1$ with one traveler, so it makes no difference to use multiple travelers when there is no communication($P_0$); 
 \\with partial communication or complete communication, the more travelers we have, the better result we will get. Because the formula of the cost is $2(K+1)-L$ which concerns about the number of travelers, so if we want this result less than $2K+1$, we should have $L>1$.
 
-(2)With randomised approach, the cost becomes $K+1$ for only one traveler. When there is no communication, it is complicated and we can compare the formular with $K+1$ by figures;
+(2)With randomized approach, the cost becomes $K+1$ for only one traveler. When there is no communication, it is complicated and we can compare the formula with $K+1$ by figures;
 \\with complete communication, if we want the result better than $K+1$ which is the case of one traveler, we should have the following condition:
 \[
 (K+1)-(K+2-L+\frac{L(L-1)}{2(K+1)})>0
@@ -750,6 +750,7 @@ Moreover, we recommend to apply the different communication systems (especially 
 \bibliography{ctp.bib}
 
 \end{document}
+
 
 
 

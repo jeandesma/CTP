@@ -675,30 +675,19 @@ We can see that if we set L=1 for just one traveler, the result will be $K+1$, w
 If we fix K, we can see that the performance improves quickly with the growth of L, and tends to optimal.
 
 
-\begin{figure*}
+\begin{figure*}[h]
     \centering
     \begin{subfigure}[H]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{RandoK1.png}
-            \caption{$K$ set to 1}
+            \includegraphics[width=\textwidth]{courbeNewKrandom.png}
+            \caption{Competitive ratio for $K$ set to 1, 20, 40 , 60 in randomized approach}
             \label{a}
     \end{subfigure}
     \begin{subfigure}[H]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{RandoK20.png}
-            \caption{$K$ set to 20}
+            \includegraphics[width=\textwidth]{courbeNewLrandom.png}
+            \caption{Competitive ratio for $L$ set to 1, 20, 40 , 60 in randomized approach}
             \label{b}
     \end{subfigure}
-
-    \begin{subfigure}[H]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{Randol1.png}
-            \caption{$L$ set to 1}
-            \label{c}
-    \end{subfigure}
-    \begin{subfigure}[H]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{Randol20.png}
-            \caption{$L$ set to 20}
-            \label{d}
-    \end{subfigure}
-    \caption{$K$ and $L$ set to different values}\label{fig:ABCD}
+    \caption{Competitive ratio for $K$ and $L$ set to different values in randomized approach}\label{fig:ABCD}
 \end{figure*}
 
 

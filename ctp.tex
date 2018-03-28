@@ -507,10 +507,8 @@ Therefore we have:
 \end{proof}
 
 \subsection{Conclusion for the deterministic approach}
-<<<<<<< HEAD:RapportCEI.tex
 We note $\phi(K,L) = {L(2K + 1) - \left\lfloor \frac{L-1}{K+1} \right\rfloor K(K+1)- \left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right)}$.
-=======
->>>>>>> cc9f6442a71dde5d92365e602dd03a300b8b1eb3:ctp.tex
+
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -528,121 +526,26 @@ between $T_{fd}$ and $ T_{la}$  & ${2K+1}$ & $\phi(K,L)$ & ${ L(2K - L)}$ & ${2K
 
 In order to have a better view of what $\phi(K,L)$ represents, we propose to the reader to look at the following graphs:
 
-First we set K and make L vary:
-<<<<<<< HEAD:RapportCEI.tex
+First we set $K$ and make $L$ vary and then we set $L$ and make $K$ vary.
 \begin{figure*}
     \centering
     \begin{subfigure}[H]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{K20E.png}
-            \caption{$K$ set to 20}
+            \includegraphics[width=\textwidth]{courbeNewKdeter.png}
+            \caption{$K$ set to 20 and 30 for $K<L$ in the deterministic approach}
             \label{a}
     \end{subfigure}
     \begin{subfigure}[H]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{K40E.png}
-            \caption{$K$ set to 40}
+            \includegraphics[width=\textwidth]{courbeNewLdeter.png}
+            \caption{$L$ set to 20 and 30 for $K<L$ in the deterministic approach}
             \label{b}
     \end{subfigure}
-
-    \begin{subfigure}[H]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{K60E.png}
-            \caption{$K$ set to 60}
-            \label{c}
-    \end{subfigure}
-    \begin{subfigure}[H]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{K80E.png}
-            \caption{$K$ set to 80}
-            \label{d}
-    \end{subfigure}
-    \caption{$K$ set to different values}\label{fig:ABCD}
+    \caption{Total distance for $K<L$ in the deterministic approach}\label{fig:ABCD}
 \end{figure*}
 
-Then we set $L$ and make $K$ vary:
 
-\begin{figure*}[h!]
-    \centering
-    \begin{subfigure}[b]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{L20E.png}
-            \caption{$L$ set to 20}
-            \label{a}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{L40E.png}
-            \caption{$L$ set to 40}
-            \label{b}
-    \end{subfigure}
-
-    \begin{subfigure}[b]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{L60E.png}
-            \caption{$L$ set to 60}
-            \label{c}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.475\textwidth}
-            \includegraphics[width=\textwidth]{L80E.png}
-            \caption{$L$ set to 80}
-            \label{d}
-    \end{subfigure}
-    \caption{$L$ set to different values}\label{fig:ABCD}
-\end{figure*}
-
-As one can expect, those curves are rising characteristic curves. Therefore the more travelers, the more blockages, the higher the cost. Nevertheless, one can notice that for a fixed number of blockages, the cost increases less as the number of travelers increase. The cost of getting one more traveler to the destination is then less important.
-=======
-%\begin{figure*}
-%    \centering
-%    \begin{subfigure}[H]{0.475\textwidth}
-%            \includegraphics[width=\textwidth]{K20E.png}
-%            \caption{$K$ set to 20}
-%            \label{a}
-%    \end{subfigure}
-%    \begin{subfigure}[H]{0.475\textwidth}
-%            \includegraphics[width=\textwidth]{K40E.png}
-%            \caption{$K$ set to 40}
-%            \label{b}
-%    \end{subfigure}
-%
-%    \begin{subfigure}[H]{0.475\textwidth}
-%            \includegraphics[width=\textwidth]{K60E.png}
-%            \caption{$K$ set to 60}
-%            \label{c}
-%    \end{subfigure}
-%    \begin{subfigure}[H]{0.475\textwidth}
-%            \includegraphics[width=\textwidth]{K80E.png}
-%            \caption{$K$ set to 80}
-%            \label{d}
-%    \end{subfigure}
-%    \caption{$K$ set to different values}\label{fig:ABCD}
-%\end{figure*}
-
-Then we set $L$ and make $K$ vary:
-
-%\begin{figure*}[h!]
-%    \centering
-%    \begin{subfigure}[b]{0.475\textwidth}
-%            \includegraphics[width=\textwidth]{L20E.png}
-%            \caption{$L$ set to 20}
-%            \label{a}
-%    \end{subfigure}
-%    \begin{subfigure}[b]{0.475\textwidth}
-%            \includegraphics[width=\textwidth]{L40E.png}
-%            \caption{$L$ set to 40}
-%            \label{b}
-%    \end{subfigure}
-%
-%    \begin{subfigure}[b]{0.475\textwidth}
-%            \includegraphics[width=\textwidth]{L60E.png}
-%            \caption{$L$ set to 60}
-%            \label{c}
-%    \end{subfigure}
-%    \begin{subfigure}[b]{0.475\textwidth}
-%            \includegraphics[width=\textwidth]{L80E.png}
-%            \caption{$L$ set to 80}
-%            \label{d}
-%    \end{subfigure}
-%    \caption{$L$ set to different values}\label{fig:ABCD}
-%\end{figure*}
 
 As one can expect, those curves are rising characteristic curves. Therefore the more travelers, the more blockages, the higher the cost. Nevertheless, one can notice that for a fixed number of blockages, the cost increases less as the number of travelers increase. The cost of getting one more traveler to the destination is then less important.
 
->>>>>>> cc9f6442a71dde5d92365e602dd03a300b8b1eb3:ctp.tex
 
 \section{Bounds of competitiveness: randomized algorithms}
 \subsection{Complete communication}
@@ -857,10 +760,7 @@ Moreover, we recommend to apply the different communication systems (especially 
 \bibliographystyle{plain}
 \bibliography{ctp.bib}
 
-<<<<<<< HEAD:RapportCEI.tex
-\end{document}
-=======
 \end{document}
 
 
->>>>>>> cc9f6442a71dde5d92365e602dd03a300b8b1eb3:ctp.tex
+

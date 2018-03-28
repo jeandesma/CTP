@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.23)  28 MAR 2018 18:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.23)  28 MAR 2018 21:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -702,33 +702,33 @@ Overfull \hbox (35.7745pt too wide) in paragraph at lines 510--511
 
 
 LaTeX Warning: File `Courbes CEI/courbeNewKdeter.png' not found on input line 5
-33.
+32.
 
 <Courbes CEI/courbeNewKdeter.png, id=49, 405.515pt x 266.9975pt>
 File: Courbes CEI/courbeNewKdeter.png Graphic file (type png)
 
 <use Courbes CEI/courbeNewKdeter.png>
-Package pdftex.def Info: Courbes CEI/courbeNewKdeter.png used on input line 533
+Package pdftex.def Info: Courbes CEI/courbeNewKdeter.png used on input line 532
 .
 (pdftex.def)             Requested size: 216.10849pt x 142.2902pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 533--534
+Underfull \hbox (badness 10000) in paragraph at lines 532--533
 []\OT1/cmr/m/n/10.95 CEI/courbeNewKdeter.png
  []
 
 
 LaTeX Warning: File `Courbes CEI/courbeNewLdeter.png' not found on input line 5
-38.
+37.
 
 <Courbes CEI/courbeNewLdeter.png, id=51, 402.50375pt x 266.9975pt>
 File: Courbes CEI/courbeNewLdeter.png Graphic file (type png)
 
 <use Courbes CEI/courbeNewLdeter.png>
-Package pdftex.def Info: Courbes CEI/courbeNewLdeter.png used on input line 538
+Package pdftex.def Info: Courbes CEI/courbeNewLdeter.png used on input line 537
 .
 (pdftex.def)             Requested size: 216.10849pt x 143.35353pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 538--539
+Underfull \hbox (badness 10000) in paragraph at lines 537--538
 []\OT1/cmr/m/n/10.95 CEI/courbeNewLdeter.png
  []
 
@@ -736,38 +736,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 538--539
 [11] [12]
 
 LaTeX Warning: File `Courbes CEI/courbeNewKrandom.png' not found on input line 
-681.
+676.
 
 <Courbes CEI/courbeNewKrandom.png, id=63, 390.45876pt x 266.9975pt>
 File: Courbes CEI/courbeNewKrandom.png Graphic file (type png)
 
 <use Courbes CEI/courbeNewKrandom.png>
-Package pdftex.def Info: Courbes CEI/courbeNewKrandom.png used on input line 68
-1.
+Package pdftex.def Info: Courbes CEI/courbeNewKrandom.png used on input line 67
+6.
 (pdftex.def)             Requested size: 216.10849pt x 147.77386pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 681--682
+Underfull \hbox (badness 10000) in paragraph at lines 676--677
 []\OT1/cmr/m/n/10.95 CEI/courbeNewKrandom.png
  []
 
 
 LaTeX Warning: File `Courbes CEI/courbeNewLrandom.png' not found on input line 
-686.
+681.
 
 <Courbes CEI/courbeNewLrandom.png, id=64, 404.51125pt x 266.9975pt>
 File: Courbes CEI/courbeNewLrandom.png Graphic file (type png)
 
 <use Courbes CEI/courbeNewLrandom.png>
 Package pdftex.def Info: Courbes CEI/courbeNewLrandom.png used on input line 68
-6.
+1.
 (pdftex.def)             Requested size: 216.10849pt x 142.64464pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 686--687
+Underfull \hbox (badness 10000) in paragraph at lines 681--682
 []\OT1/cmr/m/n/10.95 CEI/courbeNewLrandom.png
  []
 
-[13 <./Courbes CEI/courbeNewKrandom.png> <./Courbes CEI/courbeNewLrandom.png>]
-(./ctp.bbl [14]) [15] (./ctp.aux)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[13] (./ctp.bbl [14 <./Courbes CEI/courbeNewKrandom.png> <./Courbes CEI/courbeN
+ewLrandom.png>]) [15] (./ctp.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -775,7 +778,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  15202 strings out of 492995
  314535 string characters out of 6132704
- 351845 words of memory out of 5000000
+ 352845 words of memory out of 5000000
  18432 multiletter control sequences out of 15000+600000
  14300 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -796,7 +799,7 @@ ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
 ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
 /2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
 2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ctp.pdf (15 pages, 256994 bytes).
+Output written on ctp.pdf (15 pages, 256258 bytes).
 PDF statistics:
  129 PDF objects out of 1000 (max. 8388607)
  87 compressed objects within 1 object stream

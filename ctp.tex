@@ -3,7 +3,7 @@
 
 %------------------------------------------------------------
 %
-\documentclass[a4paper, 10pt]{article}
+\documentclass[letter-size, 11pt]{article}
 
 %%%%%%%%%%%%%%PACKAGES%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -481,10 +481,10 @@ Therefore we have:
 
 \begin{eqnarray}
 \sum_{i=1}^{L}(2(K-i)+1)
-&=& 2K + L - 2\sum_{i=1}^{L}i
-= 2K + L - 2\frac{L(L+1)}{2} \nonumber \\
-&=& 2K + L(1-(L+1))
-= 2K - L^2.\nonumber
+&=& 2KL + L - 2\sum_{i=1}^{L}i
+= L(2K+1) - 2\frac{L(L+1)}{2} \nonumber \\
+&=& L(2K + 1-(L+1))
+= L(2K - L).\nonumber
 \end{eqnarray}
 
 \item[$\bullet$] Case 4: between $T_{fd}$ and $T_{la}$ and $K<L$
@@ -494,10 +494,10 @@ We redo the same pattern as in the 3rd case, but there will be more than one tra
 The first traveler will then have a cost of $2K+1$, the second of $2K$. For $1 \leq i \leq L$, the $i^{th}$ traveler will have a cost of $2(K-i\bmod{(K+1)})+1$
 
 Therefore we have:
-\[
-\sum_{i=1}^{L}(2(K-(i-1)\bmod{(K+1)})+1) = L(2K+1) - 2\sum_{i=0}^{L-1}i\bmod{(K+1)}
-\]
+
 \begin{eqnarray}
+\phi(K,L) &=& \sum_{i=1}^{L}(2(K-(i-1)\bmod{(K+1)})+1) \nonumber \\
+&=& L(2K+1) - 2\sum_{i=0}^{L-1}i\bmod{(K+1)} \nonumber \\
 &=& L(2K + 1) - 2\left(\left\lfloor \frac{L-1}{K+1} \right\rfloor \sum_{i=0}^{K}i + \sum_{i=0}^{(L-1)\bmod(K+1)}i\right) \nonumber \\
 &=& L(2K + 1) - 2\left(\left\lfloor \frac{L-1}{K+1} \right\rfloor\frac{K(K+1)}{2} + \frac{\left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right)}{2}\right)\nonumber \\
 &=& L(2K + 1) - \left\lfloor \frac{L-1}{K+1} \right\rfloor K(K+1)- \left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right).\nonumber
@@ -507,7 +507,10 @@ Therefore we have:
 \end{proof}
 
 \subsection{Conclusion for the deterministic approach}
+<<<<<<< HEAD:RapportCEI.tex
 We note $\phi(K,L) = {L(2K + 1) - \left\lfloor \frac{L-1}{K+1} \right\rfloor K(K+1)- \left((L-1)\bmod(K+1)\right)\left((L-1)\bmod(K+1) + 1\right)}$.
+=======
+>>>>>>> cc9f6442a71dde5d92365e602dd03a300b8b1eb3:ctp.tex
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -518,7 +521,7 @@ We note $\phi(K,L) = {L(2K + 1) - \left\lfloor \frac{L-1}{K+1} \right\rfloor K(K
 \hline
  between $T_{fd}$ and $T_{fa}$  & ${2K + 1}$ & ${K+1}$ & ${2(K+1)-L}$ & ${K+1}$ & ${2(K+1)-L}$     \\ 
 \hline
-between $T_{fd}$ and $ T_{la}$  & ${2K+1}$ & ${ 2K - L^2}$ & $\phi(K,L)$ & ${2K+L}$  & ${2K+L}$ \\ 
+between $T_{fd}$ and $ T_{la}$  & ${2K+1}$ & $\phi(K,L)$ & ${ L(2K - L)}$ & ${2K+L}$  & ${2K+L}$ \\ 
 \hline
 \end{tabular}
 \end{center}
@@ -526,6 +529,7 @@ between $T_{fd}$ and $ T_{la}$  & ${2K+1}$ & ${ 2K - L^2}$ & $\phi(K,L)$ & ${2K+
 In order to have a better view of what $\phi(K,L)$ represents, we propose to the reader to look at the following graphs:
 
 First we set K and make L vary:
+<<<<<<< HEAD:RapportCEI.tex
 \begin{figure*}
     \centering
     \begin{subfigure}[H]{0.475\textwidth}
@@ -581,6 +585,64 @@ Then we set $L$ and make $K$ vary:
 \end{figure*}
 
 As one can expect, those curves are rising characteristic curves. Therefore the more travelers, the more blockages, the higher the cost. Nevertheless, one can notice that for a fixed number of blockages, the cost increases less as the number of travelers increase. The cost of getting one more traveler to the destination is then less important.
+=======
+%\begin{figure*}
+%    \centering
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{K20E.png}
+%            \caption{$K$ set to 20}
+%            \label{a}
+%    \end{subfigure}
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{K40E.png}
+%            \caption{$K$ set to 40}
+%            \label{b}
+%    \end{subfigure}
+%
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{K60E.png}
+%            \caption{$K$ set to 60}
+%            \label{c}
+%    \end{subfigure}
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{K80E.png}
+%            \caption{$K$ set to 80}
+%            \label{d}
+%    \end{subfigure}
+%    \caption{$K$ set to different values}\label{fig:ABCD}
+%\end{figure*}
+
+Then we set $L$ and make $K$ vary:
+
+%\begin{figure*}[h!]
+%    \centering
+%    \begin{subfigure}[b]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{L20E.png}
+%            \caption{$L$ set to 20}
+%            \label{a}
+%    \end{subfigure}
+%    \begin{subfigure}[b]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{L40E.png}
+%            \caption{$L$ set to 40}
+%            \label{b}
+%    \end{subfigure}
+%
+%    \begin{subfigure}[b]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{L60E.png}
+%            \caption{$L$ set to 60}
+%            \label{c}
+%    \end{subfigure}
+%    \begin{subfigure}[b]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{L80E.png}
+%            \caption{$L$ set to 80}
+%            \label{d}
+%    \end{subfigure}
+%    \caption{$L$ set to different values}\label{fig:ABCD}
+%\end{figure*}
+
+As one can expect, those curves are rising characteristic curves. Therefore the more travelers, the more blockages, the higher the cost. Nevertheless, one can notice that for a fixed number of blockages, the cost increases less as the number of travelers increase. The cost of getting one more traveler to the destination is then less important.
+
+>>>>>>> cc9f6442a71dde5d92365e602dd03a300b8b1eb3:ctp.tex
 
 \section{Bounds of competitiveness: randomized algorithms}
 \subsection{Complete communication}
@@ -737,6 +799,43 @@ If we fix K, we can see that the performance improves quickly with the growth of
 \end{figure*}
 
 
+When we study the distances between $T_{fd}$ and $T_{fa}$, we have to notice that there is no meaning to compare the results of $P_0$ and $P_2$, because these two cases are based on different assumptions. For $P_0$, travelers sets off one by one while in $P_2$ all the travelers set off together.
+
+Furthermore,in order to have a better view of the long formula for $T_{fd}$ and $T_{fa}$ with $P_0$, we can look into [Figure 3].
+
+We can see that if we set L=1 for just one traveler, the result will be $K+1$, which correspond with the result of Bender et al.~\cite{BeWe15};when there are multiple travellers (L=20 for example), the performance depends on the number of blockages. If the number of blockages if less than or similar with the number of travellers, the performance is nearly optimal; but with the increase of blockages, the performance begin to drop faster and faster.
+
+If we fix K, we can see that the performance improves quickly with the growth of L, and tends to optimal.
+
+%%%%
+%\begin{figure*}
+%    \centering
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{RandoK1.png}
+%            \caption{$K$ set to 1}
+%            \label{a}
+%    \end{subfigure}
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{RandoK20.png}
+%            \caption{$K$ set to 20}
+%            \label{b}
+%    \end{subfigure}
+%
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{Randol1.png}
+%            \caption{$L$ set to 1}
+%            \label{c}
+%    \end{subfigure}
+%    \begin{subfigure}[H]{0.475\textwidth}
+%            \includegraphics[width=\textwidth]{Randol20.png}
+%            \caption{$L$ set to 20}
+%            \label{d}
+%    \end{subfigure}
+%    \caption{$K$ and $L$ set to different values}\label{fig:ABCD}
+%\end{figure*}
+%%%
+
+
 \section{Conclusion}
 In this article, we have discussed the cost of distance for K-Canadian problem with deterministic approach and randomized approach, on considering different modes of communication. 
 
@@ -758,4 +857,10 @@ Moreover, we recommend to apply the different communication systems (especially 
 \bibliographystyle{plain}
 \bibliography{ctp.bib}
 
+<<<<<<< HEAD:RapportCEI.tex
 \end{document}
+=======
+\end{document}
+
+
+>>>>>>> cc9f6442a71dde5d92365e602dd03a300b8b1eb3:ctp.tex

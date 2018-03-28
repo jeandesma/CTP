@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.23)  5 MAR 2018 23:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.23)  23 MAR 2018 15:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**RapportCEI.tex
-(./RapportCEI.tex
+**ctp.tex
+(./ctp.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -523,8 +523,13 @@ brarydecorations.footprints.code.tex))
 \c@example=\count129
 \c@corollary=\count130
 \c@problem=\count131
- (./RapportCEI.aux)
-\openout1 = `RapportCEI.aux'.
+
+
+LaTeX Warning: Unused global option(s):
+    [letter-size].
+
+(./ctp.aux)
+\openout1 = `ctp.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
 LaTeX Font Info:    ... okay on input line 88.
@@ -538,8 +543,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
 LaTeX Font Info:    ... okay on input line 88.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
 LaTeX Font Info:    ... okay on input line 88.
-
-ABD: EveryShipout initializing macros
+ ABD: EveryShipout initializing macros
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count132
@@ -603,27 +607,27 @@ e
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: a4paper
+* paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(79.6678pt, 438.17227pt, 79.6678pt)
-* v-part:(T,H,B)=(56.9055pt, 702.78308pt, 85.35826pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=438.17227pt
-* \textheight=702.78308pt
+* h-part:(L,W,R)=(79.6678pt, 454.9594pt, 79.6678pt)
+* v-part:(T,H,B)=(56.9055pt, 652.70622pt, 85.35826pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=454.9594pt
+* \textheight=652.70622pt
 * \oddsidemargin=7.39781pt
 * \evensidemargin=7.39781pt
 * \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=10.0pt
+* \topskip=11.0pt
 * \footskip=30.0pt
-* \marginparwidth=57.0pt
-* \marginparsep=11.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -647,94 +651,54 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 LaTeX Warning: No \author given.
 
-
-LaTeX Warning: Citation `PaYa91' on page 1 undefined on input line 108.
-
-
-LaTeX Warning: Citation `BaSc91' on page 1 undefined on input line 108.
-
-
-LaTeX Warning: Citation `PaYa91' on page 1 undefined on input line 108.
-
-
-LaTeX Warning: Citation `We08' on page 1 undefined on input line 110.
-
-
-LaTeX Warning: Citation `XuHuSuZh09' on page 1 undefined on input line 110.
-
-
-LaTeX Warning: Citation `We08' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation `DeHuLiSa14' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation `BeWe15' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation `BoEl98' on page 1 undefined on input line 127.
-
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3] [4]
-Overfull \hbox (24.97417pt too wide) in alignment at lines 345--350
+[2] [3] [4] [5]
+Overfull \hbox (44.34424pt too wide) in alignment at lines 345--350
  [][][] []
  []
 
-[5] [6] [7]
-Overfull \hbox (14.41599pt too wide) in alignment at lines 500--504
- [][][] []
- []
-
-
-Overfull \hbox (20.548pt too wide) in paragraph at lines 510--511
- [] \OT1/cmr/m/n/10 We note $\OML/cmm/m/it/10 ^^^\OT1/cmr/m/n/10 (\OML/cmm/m/it
-/10 K; L\OT1/cmr/m/n/10 ) = []$. 
+[6] [7]
+Overfull \hbox (18.81601pt too wide) in paragraph at lines 421--430
+ [] 
  []
 
 [8]
+Overfull \hbox (74.87546pt too wide) in alignment at lines 498--504
+ [][][] []
+ []
 
-LaTeX Warning: Citation `BeWe15' on page 9 undefined on input line 591.
-
-
-LaTeX Warning: Citation `BeWe15' on page 9 undefined on input line 603.
-
-[9]
-No file RapportCEI.bbl.
-[10] (./RapportCEI.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[9] [10] [11] [12] (./ctp.bbl [13]) [14] (./ctp.aux) ) 
 Here is how much of TeX's memory you used:
- 15110 strings out of 492995
- 312946 string characters out of 6132704
- 353388 words of memory out of 5000000
- 18347 multiletter control sequences out of 15000+600000
- 12752 words of font info for 49 fonts, out of 8000000 for 9000
+ 15111 strings out of 492995
+ 312944 string characters out of 6132704
+ 352520 words of memory out of 5000000
+ 18348 multiletter control sequences out of 15000+600000
+ 12601 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,56p,1297b,603s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
-sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
-/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
-ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
-al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
-/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/t
-exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
-ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
-/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
-2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on RapportCEI.pdf (10 pages, 214735 bytes).
+ 55i,9n,56p,1293b,603s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2017/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb>
+Output written on ctp.pdf (14 pages, 223239 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 117 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
